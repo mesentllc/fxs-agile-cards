@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+group 'com.fedex.services.agile.cards'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Lombok Dependencies
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
+    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.4'
+    // JasperReports Dependencies
+    compile group: 'net.sourceforge.dynamicreports', name: 'dynamicreports-core', version: '6.0.0'
+    compile group: 'com.lowagie', name: 'itext', version: '2.1.7'
+    // Jsoup Dependencies -- remove HTML from text
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.12.1'
+    // Spring Dependencies
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.5.RELEASE'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.8'
+    // Windows Registry Dependencies
+    compile group: 'net.java.dev.jna', name: 'jna', version: '4.2.2'
+    compile group: 'net.java.dev.jna', name: 'platform', version: '3.5.2'
+    compile group: 'org.jasypt', name: 'jasypt', version: '1.9.2'
+    // Test Dependencies
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jar {
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA', 'META-INF/*.MF'
+
+    manifest {
+        attributes 'Main-Class': 'com.fedex.services.agile.cards.WebViewExample',
+                   'Class-Path': configurations.runtime.files.collect { "lib/$it.name" }.join(' ')
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
