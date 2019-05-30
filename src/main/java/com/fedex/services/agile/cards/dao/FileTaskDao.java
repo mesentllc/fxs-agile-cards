@@ -4,17 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class FileTaskDao implements TaskDao {
-	private final String filename;
-
-	public FileTaskDao(String filename) {
-		this.filename = filename;
-	}
-
-	@Override
-	public String retrieveJson() {
+public class FileTaskDao {
+	public String retrieveJson(String resource) {
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(filename));
+			BufferedReader reader = new BufferedReader(new FileReader(resource));
 			StringBuilder buffer = new StringBuilder();
 			while (reader.ready()) {
 				buffer.append(reader.readLine());

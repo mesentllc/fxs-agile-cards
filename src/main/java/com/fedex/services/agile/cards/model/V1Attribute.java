@@ -33,4 +33,6 @@ public class V1Attribute {
 	private V1Values owners;
 	@JsonProperty("Priority.Name")
 	private V1Value priority;
+	@JsonProperty("Scope.Name")
+	private V1Value programIncrement;
 }

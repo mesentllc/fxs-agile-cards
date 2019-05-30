@@ -1,0 +1,17 @@
+	private void query(String resource) {
+		Document document = webEngine.getDocument();
+		// Change ComboBox to JSON
+		HTMLSelectElement node = (HTMLSelectElement)document.getElementsByTagName("select").item(2);
+		node.setSelectedIndex(1);
+		webEngine.setJavaScriptEnabled(true);
+		webEngine.executeScript("(function () {let element = document.getElementsByTagName('select')[2]; " +
+		                        "element.dispatchEvent(new Event('change', { 'bubbles': true }));})()");
+		// Change API URL to passed string
+		HTMLInputElement v1Url = (HTMLInputElement)document.getElementsByTagName("input").item(1);
+		v1Url.setValue(resource);
+		webEngine.executeScript("(function () {let element = document.getElementsByTagName('input')[1]; " +
+		                        "element.dispatchEvent(new Event('change', { 'bubbles': true }));})()");
+		// Fire the submission
+		HTMLInputElement submitBtn = (HTMLInputElement)document.getElementsByTagName("input").item(2);
+		submitBtn.click();
+	}
