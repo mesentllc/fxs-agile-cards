@@ -6,6 +6,7 @@ import com.fedex.services.agile.cards.service.WebProcess;
 import com.fedex.services.agile.cards.utility.WebUtils;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -23,6 +24,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.extern.apachecommons.CommonsLog;
 
+import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 
@@ -49,8 +51,17 @@ public class WebMakeCards extends Application {
 		VBox controlContainer = new VBox();
 		controlContainer.setPrefSize(300, 500);
 		cbxPI = new ComboBox<>();
+		cbxPI.setOnAction(event -> {
+			btnSubmit.setDisable(!filterSelected());
+		});
 		cbxSprint = new ComboBox<>();
+		cbxSprint.setOnAction(event -> {
+			btnSubmit.setDisable(!filterSelected());
+		});
 		cbxTeam = new ComboBox<>();
+		cbxTeam.setOnAction(event -> {
+			btnSubmit.setDisable(!filterSelected());
+		});
 		Label lblPI = new Label();
 		lblPI.setText("Program Increment:");
 		lblPI.setFont(bold);
@@ -68,10 +79,9 @@ public class WebMakeCards extends Application {
 		HBox btnBox = new HBox();
 		btnSubmit = new Button();
 		btnSubmit.setText("Extract");
-		btnSubmit.setOpaqueInsets(new Insets(25));
 		btnSubmit.setDisable(true);
 		btnSubmit.setOnAction(event -> {
-			if (hasUserSelection(cbxPI) || hasUserSelection(cbxSprint) || hasUserSelection(cbxTeam)) {
+			if (filterSelected()) {
 				btnSubmit.setDisable(true);
 				webView.getEngine().load(StopSequenceEnum.CARDDATA.getUrl() + buildSelectString() + "&Accept=application/json");
 			}
@@ -83,12 +93,18 @@ public class WebMakeCards extends Application {
 		});
 		Button btnExit = new Button();
 		btnExit.setText("Exit");
-		btnExit.setOpaqueInsets(new Insets(25));
 		btnExit.setOnAction(event -> System.exit(0));
-		btnBox.getChildren().addAll(btnSubmit, btnExit);
+		Label lblBtnSpacer = new Label();
+		lblBtnSpacer.setPadding(new Insets(20));
+		btnBox.getChildren().addAll(btnSubmit, lblBtnSpacer, btnExit);
 		controlContainer.getChildren().addAll(lblPI, cbxPI, lblSprint, cbxSprint, lblTeam, cbxTeam, lblSpacer, btnBox);
 		container.getChildren().addAll(webContainer, leftSpacer, controlContainer, rightSpacer);
 		return container;
+	}
+
+	private boolean filterSelected() {
+		return !(cbxPI.getSelectionModel().isSelected(0) && cbxSprint.getSelectionModel().isSelected(0) &&
+		         cbxTeam.getSelectionModel().isSelected(0));
 	}
 
 	private String buildSelectString() {

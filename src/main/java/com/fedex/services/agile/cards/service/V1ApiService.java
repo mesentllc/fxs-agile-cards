@@ -11,10 +11,16 @@ import javafx.collections.ObservableList;
 import javafx.scene.web.WebEngine;
 import lombok.extern.apachecommons.CommonsLog;
 import net.sf.dynamicreports.report.exception.DRException;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
+import org.springframework.util.Assert;
 import org.w3c.dom.Document;
 import org.w3c.dom.html.HTMLPreElement;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -23,6 +29,12 @@ public class V1ApiService extends WebProcess {
 	private static final ObjectMapper mapper = new ObjectMapper();
 	private static final String url = "https://www19.v1host.com/FedEx/sso.html?TargetResource=" +
 	                                  "https://www19.v1host.com/FedEx/ApiConsole.mvc/";
+	private static final String instructHtml = "<br/><br /><p style=\"font-size:x-large;\">So not to print all the Epics, Features and User Stories currently " +
+	                                           "found in the FedEx VersionOne Database, you are required to select <u>at least one</u> of the dropdown items on the " +
+	                                           "right (Program Increment, Sprint and/or Team) before you will be able to press the \"Extract\" button on " +
+	                                           "the right.</p><p style=\"font-size:x-large;\">It will pop-up the print dialog box once completed, so you " +
+	                                           "are able to print out the extracted cards. If you wish to save the cards to a PDF file, select " +
+	                                           "\"Microsoft Print to PDF\" from the Printer dialog box.</p>";
 	private WebMakeCards app;
 	private WebEngine engine;
 	private StopSequenceEnum stopSequence;
@@ -93,13 +105,12 @@ public class V1ApiService extends WebProcess {
 				catch (IOException ioe) {
 					log.error("Exception Caught: ", ioe);
 				}
-				app.getBtnSubmit().setDisable(false);
+				engine.loadContent(instructHtml);
 				break;
 			case CARDDATA:
 				APICardService service = new APICardService();
 				json = retrieveJson();
 				engine.load("about:blank");
-				app.getBtnSubmit().setDisable(false);
 				try {
 					service.process(json, null);
 					System.exit(0);
