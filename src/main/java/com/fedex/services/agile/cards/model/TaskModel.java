@@ -20,13 +20,10 @@ public class TaskModel implements Comparable {
 	private String feature;
 	private String release;
 	private String assignedTo;
+	private String sprint;
 	private Color color;
 
 	public TaskModel() {
-	}
-
-	public TaskModel(String userStoryTitle) {
-		this.userStoryTitle = userStoryTitle;
 	}
 
 	public String getAcceptanceCriteria() {
@@ -57,16 +54,8 @@ public class TaskModel implements Comparable {
 		return task;
 	}
 
-	public void setTask(String task) {
-		this.task = task;
-	}
-
 	public String getTaskId() {
 		return taskId;
-	}
-
-	public void setTaskId(String taskId) {
-		this.taskId = taskId;
 	}
 
 	public String getDescription() {
@@ -84,22 +73,6 @@ public class TaskModel implements Comparable {
 		return hours;
 	}
 
-	public void setHours(String hours) {
-		this.hours = hours;
-	}
-
-	public String getItg() {
-		return itg;
-	}
-
-	public void setItg(String itg) {
-		this.itg = itg;
-	}
-
-	public String getPriority() {
-		return priority;
-	}
-
 	public void setPriority(String priority) {
 		this.priority = priority;
 	}
@@ -114,10 +87,6 @@ public class TaskModel implements Comparable {
 
 	public String getEpic() {
 		return epic;
-	}
-
-	public void setEpic(String epic) {
-		this.epic = epic;
 	}
 
 	public String getFeature() {
@@ -142,6 +111,14 @@ public class TaskModel implements Comparable {
 
 	public void setAssignedTo(String assignedTo) {
 		this.assignedTo = assignedTo;
+	}
+
+	public String getSprint() {
+		return sprint;
+	}
+
+	public void setSprint(String sprint) {
+		this.sprint = sprint;
 	}
 
 	public Color getColor() {

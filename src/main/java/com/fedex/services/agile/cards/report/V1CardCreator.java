@@ -24,8 +24,8 @@ public class V1CardCreator extends CardReport {
 		                         .setPadding(2).setBackgroundColor(color);
 	}
 
-	private StyleBuilder norm20Style() {
-		return DynamicReports.stl.style(styleBuilders.style()).setFontSize(20)
+	private StyleBuilder norm15Style() {
+		return DynamicReports.stl.style(styleBuilders.style()).setFontSize(15)
 		                         .setTextAlignment(HorizontalTextAlignment.CENTER, VerticalTextAlignment.TOP)
 		                         .setPadding(2).setForegroundColor(Color.BLACK);
 	}
@@ -33,23 +33,26 @@ public class V1CardCreator extends CardReport {
 	private ComponentBuilder<?, ?> buildLine1(TaskModel taskModel) {
 		return cmp.horizontalList(cmp.text(getString(taskModel.getEpic())).setStyle(bold7Style).setFixedWidth(headerWidth),
 		                          cmp.horizontalList(cmp.text("Release:\n" + getString(taskModel.getRelease())).setStyle(bold7Style),
-		                                             cmp.text("Sprint:\n").setStyle(lineStyle)).setStyle(lineStyle))
-		          .setStyle(lineStyle);
+			                          cmp.verticalList(cmp.text("Sprint:").setStyle(bold7Style),
+				                          cmp.text(getString(taskModel.getSprint())).setStyle(noline8style)).setStyle(lineStyle)).setStyle(lineStyle))
+			.setStyle(lineStyle);
 	}
 
 	private ComponentBuilder<?, ?> buildLine2(TaskModel taskModel) {
 		return cmp.horizontalList(cmp.text("Feature:\n" + " " + getString(taskModel.getFeature()))
 		                             .setFixedWidth(headerWidth).setStyle(boldBgColorStyle(taskModel.getColor())),
-		                          cmp.verticalList(cmp.text("Assigned To:\n" + getString(taskModel.getAssignedTo())).setStyle(bold7Style))
+		                          cmp.verticalList(cmp.text("Assigned To:").setStyle(bold7Style),
+			                          cmp.text(getString(taskModel.getAssignedTo())).setStyle(noline8style))
 		                             .setStyle(bold7Style)).setStyle(lineStyle);
 	}
 
 	private ComponentBuilder<?, ?> buildLine3(TaskModel taskModel) {
 		return cmp.horizontalList(cmp.text("User Story: " + getString(taskModel.getUserStoryTitle())).setStyle(bold7Style)
 		                             .setStyle(lineStyle).setFixedWidth(headerWidth),
-		                          cmp.horizontalList(cmp.text("Id:\n" + getString(taskModel.getUserStoryId())).setStyle(bold7Style),
+		                          cmp.horizontalList(cmp.verticalList(cmp.text("Id:").setStyle(bold7Style),
+			                          cmp.text(getString(taskModel.getUserStoryId())).setStyle(bold10Style)).setStyle(lineStyle),
 		                                             cmp.verticalList(cmp.text("Points:").setStyle(bold7Style), cmp.text(taskModel.getStoryPoints())
-		                                                                                                           .setStyle(norm20Style()))
+		                                                                                                           .setStyle(norm15Style()))
 		                                                .setStyle(lineStyle))).setStyle(lineStyle);
 	}
 
@@ -69,19 +72,7 @@ public class V1CardCreator extends CardReport {
 			StyleBuilder style = styleBuilders.style(styleBuilders.pen1Point()).setTextAlignment(HorizontalTextAlignment.CENTER, VerticalTextAlignment.MIDDLE);
 			return cmp.text("Blank Card").setStyle(style);
 		}
-		return cmp.verticalList(buildCardHeader(taskModel), buildDescription(taskModel)).setFixedWidth(cardWidth).setFixedHeight(cardHeight).setStyle(lineStyle);
+		return cmp.verticalList(cmp.verticalGap(10).setStyle(Templates.printStyle), cmp.verticalList(buildCardHeader(taskModel),
+			buildDescription(taskModel)).setFixedWidth(cardWidth).setFixedHeight(cardHeight).setStyle(lineStyle));
 	}
-
-//	@Override
-//	protected ComponentBuilder<?, ?> buildCard(TaskModel taskModel) {
-//		if (taskModel == null) {
-//			StyleBuilder style = styleBuilders.style(styleBuilders.pen1Point())
-//					.setTextAlignment(HorizontalTextAlignment.CENTER, VerticalTextAlignment.MIDDLE);
-//			return cmp.text("Blank Card").setStyle(style);
-//		}
-//		StyleBuilder style = styleBuilders.style(styleBuilders.pen1Point());
-//		return cmp.verticalList(buildCardHeader(taskModel),
-//				buildDescription(taskModel.getItg(), taskModel.getDescription()))
-//				.setFixedHeight(cardHeight).setFixedWidth(cardWidth).setStyle(style);
-//	}
 }

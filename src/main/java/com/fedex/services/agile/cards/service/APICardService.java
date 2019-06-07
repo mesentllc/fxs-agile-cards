@@ -54,16 +54,12 @@ public class APICardService {
 //			model.setAcceptanceCriteria(acceptanceCriteria);
 			model.setAssignedTo(linkValues(asset.getAttribute().getOwners()));
 			model.setDescription(safeValue(asset.getAttribute().getDescription()));
-//			model.setEpic(epic);
 			String featureNumber = safeValue(asset.getAttribute().getSuperNumber());
 			model.setFeature(featureNumber + " - " + safeValue(asset.getAttribute().getSuperName()));
-//			model.setHours(hours);
-//			model.setItg(itg);
 			model.setPriority(safeValue(asset.getAttribute().getPriority()));
-//			model.setRelease(release);
+			model.setRelease(safeValue(asset.getAttribute().getProgramIncrement()));
 			model.setStoryPoints(safeValue(asset.getAttribute().getPoints()));
-//			model.setTask(task);
-//			model.setTaskId(teskId);
+			model.setSprint(safeValue(asset.getAttribute().getSprint()));
 			model.setUserStoryId(safeValue(asset.getAttribute().getNumber()));
 			model.setUserStoryTitle(safeValue(asset.getAttribute().getName()));
 			model.setColor(getColorFromMap(featureNumber, colorMap));

@@ -19,28 +19,17 @@ import java.util.List;
 import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
 
 public abstract class CardReport {
-	protected static final JasperReportBuilder report = DynamicReports.report();
-	protected static final StyleBuilders styleBuilders = DynamicReports.stl;
-	protected static final int cardHeight = (PageType.LETTER.getWidth() - 60) / 2;
-	protected static final int cardWidth = (PageType.LETTER.getHeight() - 60) / 2;
-	protected static final StyleBuilder bold7Style = DynamicReports.stl.style(Templates.boldStyle).setFontSize(7)
+	static final StyleBuilders styleBuilders = DynamicReports.stl;
+	static final int cardHeight = (PageType.LETTER.getWidth() - 80) / 2;
+	static final int cardWidth = (PageType.LETTER.getHeight() - 60) / 2;
+	static final StyleBuilder bold7Style = DynamicReports.stl.style(Templates.boldStyle).setFontSize(7)
+		.setTextAlignment(HorizontalTextAlignment.LEFT, VerticalTextAlignment.TOP).setPadding(2).setForegroundColor(Color.BLACK);
+	static final StyleBuilder bold10Style = DynamicReports.stl.style(Templates.boldStyle).setFontSize(10)
+		.setTextAlignment(HorizontalTextAlignment.LEFT, VerticalTextAlignment.TOP).setForegroundColor(Color.BLACK);
+	static final StyleBuilder noline8style = DynamicReports.stl.style(Templates.boldStyle).setFontSize(8)
 			.setTextAlignment(HorizontalTextAlignment.LEFT, VerticalTextAlignment.TOP).setPadding(2)
 			.setForegroundColor(Color.BLACK);
-	protected static final StyleBuilder noline8style = DynamicReports.stl.style(Templates.boldStyle).setFontSize(8)
-			.setTextAlignment(HorizontalTextAlignment.LEFT, VerticalTextAlignment.TOP).setPadding(2)
-			.setForegroundColor(Color.BLACK);
-	protected static final StyleBuilder line8style = DynamicReports.stl.style(styleBuilders.pen1Point()).setFontSize(8)
-			.setTextAlignment(HorizontalTextAlignment.LEFT, VerticalTextAlignment.TOP).setPadding(2)
-			.setForegroundColor(Color.BLACK);
-	protected static final StyleBuilder bold10Style = DynamicReports.stl.style(Templates.boldStyle).setFontSize(10)
-			.setTextAlignment(HorizontalTextAlignment.LEFT, VerticalTextAlignment.TOP)
-			.setForegroundColor(Color.BLACK);
-
-	protected static final Color COLOR_ORANGE = new Color(205, 110, 0);
-	protected static final Color COLOR_PURPLE = new Color(102, 0, 153);
-	protected static final Color COLOR_GOLD = new Color(255, 208, 0);
-	protected static final Color COLOR_BROWN = new Color(110, 70, 0);
-
+	private static final JasperReportBuilder report = DynamicReports.report();
 	protected abstract ComponentBuilder<?, ?> buildCard(TaskModel taskModel);
 
 	protected ComponentBuilder<?, ?> buildCardHeader(TaskModel taskModel) {
@@ -48,8 +37,8 @@ public abstract class CardReport {
 		Integer headerHeight = cardHeight / 4;
 		Integer headerWidth = cardWidth * 9 / 10;
 		if (taskModel.getTask() != null) {
-			StyleBuilder style = getTextColor(taskModel.getTask());
-			return cmp.horizontalList(cmp.horizontalGap(5),
+			StyleBuilder style = DynamicReports.stl.style(Templates.boldStyle).setFontSize(10).setForegroundColor(Color.BLACK);
+			return cmp.horizontalList(cmp.horizontalGap(15),
 					cmp.verticalList(
 							cmp.verticalList(cmp.text("Feature: " + getString(taskModel.getFeature()) +
 							                          "\nID: " + getString(taskModel.getTaskId()) + "\nTask: " +
@@ -62,7 +51,7 @@ public abstract class CardReport {
 					.setFixedHeight(headerHeight);
 		}
 		else {
-			return cmp.horizontalList(cmp.horizontalGap(5),
+			return cmp.horizontalList(cmp.horizontalGap(15),
 					cmp.verticalList(cmp.text("Feature: " + getString(taskModel.getFeature()) +
 					                          "\nID: " + getString(taskModel.getUserStoryId()) +
 					                          "\nUser Story: " + getString(taskModel.getUserStoryTitle()))
@@ -73,61 +62,7 @@ public abstract class CardReport {
 		}
 	}
 
-	private StyleBuilder getTextColor(String task) {
-		if (task == null) {
-			return DynamicReports.stl.style(Templates.boldStyle)
-					.setFontSize(10).setForegroundColor(Color.BLACK);
-		}
-		String string = task.toUpperCase();
-		if (string.toUpperCase().startsWith("CODE REVIEW")) {
-			return DynamicReports.stl.style(Templates.boldStyle)
-					.setFontSize(10).setForegroundColor(COLOR_GOLD);
-		}
-		if (string.toUpperCase().startsWith("COMPLIANCE")) {
-			return DynamicReports.stl.style(Templates.boldStyle)
-					.setFontSize(10).setForegroundColor(COLOR_GOLD);
-		}
-		if (string.toUpperCase().startsWith("CODE")) {
-			return DynamicReports.stl.style(Templates.boldStyle)
-					.setFontSize(10).setForegroundColor(COLOR_ORANGE);
-		}
-		if (string.toUpperCase().startsWith("DEPLOY")) {
-			return DynamicReports.stl.style(Templates.boldStyle)
-					.setFontSize(10).setForegroundColor(Color.BLUE);
-		}
-		if (string.toUpperCase().startsWith("TEST")) {
-			return DynamicReports.stl.style(Templates.boldStyle)
-					.setFontSize(10).setForegroundColor(Color.GREEN);
-		}
-		if (string.toUpperCase().startsWith("DEFECT")) {
-			return DynamicReports.stl.style(Templates.boldStyle)
-					.setFontSize(10).setForegroundColor(Color.RED);
-		}
-		if (string.toUpperCase().startsWith("RESEARCH")) {
-			return DynamicReports.stl.style(Templates.boldStyle)
-					.setFontSize(10).setForegroundColor(COLOR_PURPLE);
-		}
-		if (string.toUpperCase().startsWith("SPIKE")) {
-			return DynamicReports.stl.style(Templates.boldStyle)
-					.setFontSize(10).setForegroundColor(COLOR_PURPLE);
-		}
-		if (string.toUpperCase().startsWith("DEMO")) {
-			return DynamicReports.stl.style(Templates.boldStyle)
-					.setFontSize(10).setForegroundColor(COLOR_BROWN);
-		}
-		return DynamicReports.stl.style(Templates.boldStyle)
-				.setFontSize(10).setForegroundColor(Color.BLACK);
-	}
-
-	protected ComponentBuilder<?, ?> buildDecription(String itg, String description) {
-		Integer sectionHeight = cardHeight * 3 / 4;
-		StyleBuilder style = styleBuilders.style(styleBuilders.pen1Point());
-		return cmp.verticalList(cmp.verticalGap(5),
-				cmp.text("ITG: " + getString(itg) + "\n" + getString(description)).setStyle(Templates.printStyle))
-				.setStyle(style).setFixedHeight(sectionHeight);
-	}
-
-	protected String getString(String string) {
+	String getString(String string) {
 		if (string == null || string.trim().length() == 0) {
 			return "";
 		}
@@ -144,13 +79,7 @@ public abstract class CardReport {
 				largeCardSeen = true;
 			}
 			if (cards.size() == 4 || (cards.size() > 1 && largeCardSeen)) {
-				while (cards.size() < 4) {
-					cards.add(buildCard(null));
-				}
-				multiPageList.add(cmp.verticalGap(10),
-						cmp.horizontalList(cmp.horizontalGap(5), cards.get(0), cmp.horizontalGap(20), cards.get(1)),
-						cmp.verticalGap(20),
-						cmp.horizontalList(cmp.horizontalGap(5), cards.get(2), cmp.horizontalGap(20), cards.get(3)));
+				fabricate(multiPageList, cards);
 				cards = new ArrayList<>(4);
 			}
 			cards.add(buildCard(task));
@@ -162,15 +91,19 @@ public abstract class CardReport {
 			}
 		}
 		if (!cards.isEmpty()) {
-			while (cards.size() < 4) {
-				cards.add(buildCard(null));
-			}
-			multiPageList.add(cmp.verticalGap(10),
-					cmp.horizontalList(cmp.horizontalGap(5), cards.get(0), cmp.horizontalGap(20), cards.get(1)),
-					cmp.verticalGap(20),
-					cmp.horizontalList(cmp.horizontalGap(5), cards.get(2), cmp.horizontalGap(20), cards.get(3)));
+			fabricate(multiPageList, cards);
 		}
 		report.setPageFormat(PageType.LETTER, PageOrientation.LANDSCAPE).summary(multiPageList);
 		return report;
+	}
+
+	private void fabricate(MultiPageListBuilder multiPageList, List<ComponentBuilder<?, ?>> cards) {
+		while (cards.size() < 4) {
+			cards.add(buildCard(null));
+		}
+		multiPageList.add(cmp.verticalGap(10),
+			cmp.horizontalList(cmp.horizontalGap(5), cards.get(0), cmp.horizontalGap(20), cards.get(1)),
+			cmp.verticalGap(20),
+			cmp.horizontalList(cmp.horizontalGap(5), cards.get(2), cmp.horizontalGap(20), cards.get(3)));
 	}
 }
