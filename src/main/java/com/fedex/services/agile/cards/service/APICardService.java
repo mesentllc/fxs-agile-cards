@@ -30,12 +30,19 @@ public class APICardService {
 				Color.RED, Color.BLACK, new Color(0, 102, 0), new Color(102, 51, 0),
 				new Color(204, 0, 204), new Color(153, 0, 76)};
 
-	public void process(String json, String outFile) throws DRException, IOException {
+	public static Map<String, TaskModel> dumpToMap(String json) throws IOException {
+		Map<String, TaskModel> storyMap = new HashMap<>();
 		V1Object v1Response = mapper.readValue(json, V1Object.class);
-		List<TaskModel> cards = convert(v1Response);
-//		Collections.sort(cards);
+		List<TaskModel> storyList = new APICardService().convert(v1Response);
+		for (TaskModel story : storyList) {
+			storyMap.put(story.getUserStoryId(), story);
+		}
+		return storyMap;
+	}
+
+	public static void process(List<TaskModel> storyList, String outFile) throws DRException, IOException {
 		CardReport cardReport = new V1CardCreator();
-		JasperReportBuilder report = cardReport.buildCards(cards);
+		JasperReportBuilder report = cardReport.buildCards(storyList);
 		if (outFile != null && outFile.length() > 0) {
 			if (!outFile.toLowerCase().endsWith(".pdf")) {
 				outFile += ".pdf";
@@ -46,7 +53,7 @@ public class APICardService {
 		}
 	}
 
-	private List<TaskModel> convert(V1Object v1Response) {
+	public List<TaskModel> convert(V1Object v1Response) {
 		List<TaskModel> cards = new ArrayList<>();
 		Map<String, Color> colorMap = new HashMap<>();
 		for (V1Asset asset : v1Response.getAssets()) {

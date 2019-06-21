@@ -3,24 +3,29 @@ package com.fedex.services.agile.cards.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fedex.services.agile.cards.WebMakeCards;
 import com.fedex.services.agile.cards.enums.StopSequenceEnum;
+import com.fedex.services.agile.cards.model.History;
+import com.fedex.services.agile.cards.model.HistoryRecord;
+import com.fedex.services.agile.cards.model.TaskModel;
 import com.fedex.services.agile.cards.model.V1Asset;
 import com.fedex.services.agile.cards.model.V1Object;
 import com.fedex.services.agile.cards.model.V1Value;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.DatePicker;
 import javafx.scene.web.WebEngine;
 import lombok.extern.apachecommons.CommonsLog;
 import net.sf.dynamicreports.report.exception.DRException;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
-import org.springframework.util.Assert;
 import org.w3c.dom.Document;
 import org.w3c.dom.html.HTMLPreElement;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -35,9 +40,17 @@ public class V1ApiService extends WebProcess {
 	                                           "the right.</p><p style=\"font-size:x-large;\">It will pop-up the print dialog box once completed, so you " +
 	                                           "are able to print out the extracted cards. If you wish to save the cards to a PDF file, select " +
 	                                           "\"Microsoft Print to PDF\" from the Printer dialog box.</p>";
+	private final List<TaskModel> stories = new ArrayList<>();
+	private final DatePicker dpAfter;
 	private WebMakeCards app;
 	private WebEngine engine;
 	private StopSequenceEnum stopSequence;
+	private Map<String, TaskModel> storyMap;
+	private String extraUrl = null;
+
+	public V1ApiService(DatePicker dpAfter) {
+		this.dpAfter = dpAfter;
+	}
 
 	private ObservableList<String> piItems(V1Object v1Object) {
 		Set<String> items = new TreeSet<>();
@@ -77,7 +90,11 @@ public class V1ApiService extends WebProcess {
 
 	@Override
 	protected boolean isDone() {
-		return lastUrl.contains(stopSequence.getUrl());
+		String searchFor = stopSequence.getUrl();
+		if (extraUrl != null) {
+			searchFor += extraUrl;
+		}
+		return lastUrl.contains(searchFor);
 	}
 
 	@Override
@@ -91,7 +108,7 @@ public class V1ApiService extends WebProcess {
 				break;
 			case COMBOLOAD:
 				stopSequence = StopSequenceEnum.CARDDATA;
-				json = retrieveJson();
+				json = retrieveJsonFromHTML();
 				engine.load("about:blank");
 				try {
 					V1Object v1Object = mapper.readValue(json, V1Object.class);
@@ -104,24 +121,85 @@ public class V1ApiService extends WebProcess {
 				}
 				catch (IOException ioe) {
 					log.error("Exception Caught: ", ioe);
+					return;
 				}
 				engine.loadContent(instructHtml);
 				break;
 			case CARDDATA:
-				APICardService service = new APICardService();
-				json = retrieveJson();
-				engine.load("about:blank");
 				try {
-					service.process(json, null);
-					System.exit(0);
+					storyMap = APICardService.dumpToMap(retrieveJsonFromHTML());
 				}
-				catch (DRException | IOException e) {
-					throw new RuntimeException("Exception Caught: ", e);
+				catch (IOException ioe) {
+					log.error("Exception Caught: ", ioe);
+					return;
+				}
+				if (storyMap.size() > 0) {
+					printCardsAndExitIfNoDate();
+					stopSequence = StopSequenceEnum.HISTORY;
+					storyMap.keySet().stream().findFirst().ifPresent(key -> {
+						extraUrl = key;
+						engine.load(stopSequence.getUrl() + key);
+					});
+				}
+				else {
+					Alert alert = new Alert(Alert.AlertType.INFORMATION, "No stories found for current selection.", ButtonType.OK);
+					alert.setTitle("No stories.");
+					alert.showAndWait();
+				}
+				break;
+			case HISTORY:
+				json = retrieveJsonFromHTML();
+				try {
+					History[] history = mapper.readValue(json, History[].class);
+					if (createdAfterDate(history)) {
+						stories.add(storyMap.get(extraUrl));
+					}
+					storyMap.remove(extraUrl);
+					if (storyMap.size() > 0) {
+						storyMap.keySet().stream().findFirst().ifPresent(key -> {
+							extraUrl = key;
+							engine.load(stopSequence.getUrl() + key);
+						});
+					}
+					else {
+						extraUrl = null;
+						APICardService.process(stories, null);
+						System.exit(0);
+					}
+				}
+				catch (IOException | DRException ioe) {
+					log.error("Exception Caught: ", ioe);
 				}
 		}
 	}
 
-	private String retrieveJson() {
+	private void printCardsAndExitIfNoDate() {
+		if (dpAfter.getValue() == null) {
+			for (String key : storyMap.keySet()) {
+				stories.add(storyMap.get(key));
+			}
+			try {
+				APICardService.process(stories, null);
+			}
+			catch (DRException | IOException e) {
+				log.error("Exception Caught: ", e);
+			}
+			System.exit(0);
+		}
+	}
+
+	private boolean createdAfterDate(History[] historyArray) {
+		for (History history : historyArray) {
+			HistoryRecord historyRecord = history.getHistoryRecord();
+			if ("Story".equals(historyRecord.getHistoryObject().getAssetType()) &&
+			    "Created".equals(historyRecord.getVerb())) {
+				return dpAfter.getValue().isBefore(LocalDate.parse(historyRecord.getTime(), DateTimeFormatter.ISO_DATE_TIME));
+			}
+		}
+		return true;
+	}
+
+	private String retrieveJsonFromHTML() {
 		Document document = engine.getDocument();
 		HTMLPreElement element = (HTMLPreElement)document.getElementsByTagName("pre").item(0);
 		return element.getTextContent();

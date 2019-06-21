@@ -1,0 +1,1123 @@
+[
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:240766:388515",
+        "assetType": "Task",
+        "displayName": "Switch the view contingency endpoint to JDBC",
+        "number": "TK-27519",
+        "assetState": "Closed",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-17T15:38:02.75Z",
+      "summary": "Christopher Magnuson Updated Task 'Switch the view contingency endpoint to JDBC'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "5d05d65a-8476-58a9-bf47-d92fafc8b03b"
+      },
+      "target": [
+        {
+          "name": "ToDo",
+          "newValue": "0.00",
+          "oldValue": "2.00",
+          "verb": "Set",
+          "summary": "ToDo was Set to '0.00'"
+        }
+      ],
+      "id": "ea8ce667-6e02-5f31-9220-15d36269db2d"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Closed",
+      "object": {
+        "id": "Task:240766:388515",
+        "assetType": "Task",
+        "displayName": "Switch the view contingency endpoint to JDBC",
+        "number": "TK-27519",
+        "assetState": "Closed",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-17T15:38:02.75Z",
+      "summary": "Christopher Magnuson Closed Task 'Switch the view contingency endpoint to JDBC'.",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "5d05d65a-8476-58a9-bf47-d92fafc8b03b"
+      },
+      "target": [],
+      "id": "94f1ce85-dac9-552a-90e8-b48a94183b60"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:240766:388514",
+        "assetType": "Task",
+        "displayName": "Switch the view contingency endpoint to JDBC",
+        "number": "TK-27519",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-17T15:38:02.73Z",
+      "summary": "Christopher Magnuson Updated Task 'Switch the view contingency endpoint to JDBC'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "2d3ee3e6-1e44-57a4-859e-38febaf91cfa"
+      },
+      "target": [
+        {
+          "name": "Order",
+          "newValue": "1073952397",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1073952397'"
+        }
+      ],
+      "id": "ea3c2016-35cf-5220-939a-56f238e2284b"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Created",
+      "object": {
+        "id": "Task:240766:388512",
+        "assetType": "Task",
+        "displayName": "Switch the view contingency endpoint to JDBC",
+        "number": "TK-27519",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-17T15:37:53.907Z",
+      "summary": "Christopher Magnuson Created Task 'Switch the view contingency endpoint to JDBC'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "e87f8d51-d1a8-55b1-920f-b47e2360736e"
+      },
+      "target": [
+        {
+          "name": "AssetType",
+          "newValue": "Task",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetType was Set to 'Task'"
+        },
+        {
+          "name": "SecurityScope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "SecurityScope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Super",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Super was Set to ''"
+        },
+        {
+          "name": "Team",
+          "newValue": {
+            "id": "Team:130962:383991",
+            "assetType": "Team",
+            "displayName": "FXG - GSI - Bridge 4",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Team was Set to 'FXG - GSI - Bridge 4'"
+        },
+        {
+          "name": "Parent",
+          "newValue": {
+            "id": "Story:236983:375744",
+            "assetType": "Story",
+            "displayName": "B4: Integration testing",
+            "number": "B-90758",
+            "assetState": "Active",
+            "scope": "Scope:137314:212594",
+            "colorName": null,
+            "team": "Team:130962:209166"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Parent was Set to 'B4: Integration testing'"
+        },
+        {
+          "name": "Category",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Category was Set to ''"
+        },
+        {
+          "name": "Source",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Source was Set to ''"
+        },
+        {
+          "name": "Status",
+          "newValue": "Completed",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Status was Set to 'Completed'"
+        },
+        {
+          "name": "Customer",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Customer was Set to ''"
+        },
+        {
+          "name": "Timebox",
+          "newValue": {
+            "id": "Timebox:138878:250479",
+            "assetType": "Timebox",
+            "displayName": "CY19 PI3.2",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Timebox was Set to 'CY19 PI3.2'"
+        },
+        {
+          "name": "Scope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Scope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Number",
+          "newValue": "TK-27519",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Number was Set to 'TK-27519'"
+        },
+        {
+          "name": "LastVersion",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "LastVersion was Set to ''"
+        },
+        {
+          "name": "Order",
+          "newValue": "1073952397",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1073952397'"
+        },
+        {
+          "name": "Estimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Estimate was Set to ''"
+        },
+        {
+          "name": "Reference",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Reference was Set to ''"
+        },
+        {
+          "name": "ToDo",
+          "newValue": "2.00",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "ToDo was Set to '2.00'"
+        },
+        {
+          "name": "Owners",
+          "newValue": {
+            "id": "Member:98399:268412",
+            "assetType": "Member",
+            "displayName": "Christopher Magnuson",
+            "username": "3666249",
+            "email": "christopher.magnuson@fedex.com",
+            "avatar": "Image:170746:268411"
+          },
+          "oldValue": null,
+          "verb": "Added",
+          "summary": "Added Christopher Magnuson to Owners"
+        },
+        {
+          "name": "DetailEstimate",
+          "newValue": "2.00",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "DetailEstimate was Set to '2.00'"
+        },
+        {
+          "name": "Description",
+          "verb": "SetLongValue",
+          "summary": "Description was Set to a new value"
+        },
+        {
+          "name": "Name",
+          "newValue": "Switch the view contingency endpoint to JDBC",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Name was Set to 'Switch the view contingency endpoint to JDBC'"
+        },
+        {
+          "name": "AssetState",
+          "newValue": "Active",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetState was Set to 'Active'"
+        }
+      ],
+      "id": "52d6eb09-4c3f-536b-80f2-abcf6f1ec857"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Closed",
+      "object": {
+        "id": "Task:240342:386987",
+        "assetType": "Task",
+        "displayName": "Support weekend integration testing",
+        "number": "TK-27438",
+        "assetState": "Closed",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-17T13:28:49.803Z",
+      "summary": "Christopher Magnuson Closed Task 'Support weekend integration testing'.",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "b729f99d-fedd-50ab-ab1d-833269cec198"
+      },
+      "target": [],
+      "id": "b55524c7-51e1-545e-ae3d-70d93236c60c"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:240342:386986",
+        "assetType": "Task",
+        "displayName": "Support weekend integration testing",
+        "number": "TK-27438",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-17T13:28:49.74Z",
+      "summary": "Christopher Magnuson Updated Task 'Support weekend integration testing'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "5650d97e-d13d-58a5-8c20-f9051b0d8954"
+      },
+      "target": [
+        {
+          "name": "Order",
+          "newValue": "1073844870",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1073844870'"
+        }
+      ],
+      "id": "da418239-45a7-5bdb-ae0c-56774688ad79"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Created",
+      "object": {
+        "id": "Task:240342:386982",
+        "assetType": "Task",
+        "displayName": "Support weekend integration testing",
+        "number": "TK-27438",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-17T13:28:39.477Z",
+      "summary": "Christopher Magnuson Created Task 'Support weekend integration testing'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "6fa0579f-7286-55e4-9f7f-81649366065b"
+      },
+      "target": [
+        {
+          "name": "AssetType",
+          "newValue": "Task",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetType was Set to 'Task'"
+        },
+        {
+          "name": "SecurityScope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "SecurityScope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Super",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Super was Set to ''"
+        },
+        {
+          "name": "Team",
+          "newValue": {
+            "id": "Team:130962:383991",
+            "assetType": "Team",
+            "displayName": "FXG - GSI - Bridge 4",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Team was Set to 'FXG - GSI - Bridge 4'"
+        },
+        {
+          "name": "Parent",
+          "newValue": {
+            "id": "Story:236983:375744",
+            "assetType": "Story",
+            "displayName": "B4: Integration testing",
+            "number": "B-90758",
+            "assetState": "Active",
+            "scope": "Scope:137314:212594",
+            "colorName": null,
+            "team": "Team:130962:209166"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Parent was Set to 'B4: Integration testing'"
+        },
+        {
+          "name": "Category",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Category was Set to ''"
+        },
+        {
+          "name": "Source",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Source was Set to ''"
+        },
+        {
+          "name": "Status",
+          "newValue": "Completed",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Status was Set to 'Completed'"
+        },
+        {
+          "name": "Customer",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Customer was Set to ''"
+        },
+        {
+          "name": "Timebox",
+          "newValue": {
+            "id": "Timebox:138878:250479",
+            "assetType": "Timebox",
+            "displayName": "CY19 PI3.2",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Timebox was Set to 'CY19 PI3.2'"
+        },
+        {
+          "name": "Scope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Scope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Number",
+          "newValue": "TK-27438",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Number was Set to 'TK-27438'"
+        },
+        {
+          "name": "LastVersion",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "LastVersion was Set to ''"
+        },
+        {
+          "name": "Order",
+          "newValue": "1073844870",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1073844870'"
+        },
+        {
+          "name": "Estimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Estimate was Set to ''"
+        },
+        {
+          "name": "Reference",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Reference was Set to ''"
+        },
+        {
+          "name": "ToDo",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "ToDo was Set to ''"
+        },
+        {
+          "name": "Owners",
+          "newValue": {
+            "id": "Member:98399:268412",
+            "assetType": "Member",
+            "displayName": "Christopher Magnuson",
+            "username": "3666249",
+            "email": "christopher.magnuson@fedex.com",
+            "avatar": "Image:170746:268411"
+          },
+          "oldValue": null,
+          "verb": "Added",
+          "summary": "Added Christopher Magnuson to Owners"
+        },
+        {
+          "name": "DetailEstimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "DetailEstimate was Set to ''"
+        },
+        {
+          "name": "Description",
+          "verb": "SetLongValue",
+          "summary": "Description was Set to a new value"
+        },
+        {
+          "name": "Name",
+          "newValue": "Support weekend integration testing",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Name was Set to 'Support weekend integration testing'"
+        },
+        {
+          "name": "AssetState",
+          "newValue": "Active",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetState was Set to 'Active'"
+        }
+      ],
+      "id": "e7a2aab4-14b6-52f3-ab14-08cd90fc2baa"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98369",
+        "assetType": "Member",
+        "displayName": "Venus Bethly",
+        "username": "2338418",
+        "email": "vbethly@fedex.com",
+        "avatar": "NULL"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Story:236983:375744",
+        "assetType": "Story",
+        "displayName": "B4: Integration testing",
+        "number": "B-90758",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:209166"
+      },
+      "time": "2019-06-12T21:28:02.18Z",
+      "summary": "Venus Bethly Updated Story 'B4: Integration testing'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "3147ac55-4fa5-5cb7-a179-fd4fee1e5d32"
+      },
+      "target": [
+        {
+          "name": "Owners",
+          "newValue": {
+            "id": "Member:98411:228063",
+            "assetType": "Member",
+            "displayName": "Joel Stoffel",
+            "username": "794421",
+            "email": "joel.stoffel@fedex.com",
+            "avatar": "Image:148357:228062"
+          },
+          "oldValue": null,
+          "verb": "Added",
+          "summary": "Added Joel Stoffel to Owners"
+        }
+      ],
+      "id": "929b2ba5-f146-5105-af03-cd4b797a9a0d"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98369",
+        "assetType": "Member",
+        "displayName": "Venus Bethly",
+        "username": "2338418",
+        "email": "vbethly@fedex.com",
+        "avatar": "NULL"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Story:236983:375677",
+        "assetType": "Story",
+        "displayName": "B4: Integration testing",
+        "number": "B-90758",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:209166"
+      },
+      "time": "2019-06-12T21:19:47.097Z",
+      "summary": "Venus Bethly Updated Story 'B4: Integration testing'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "c365f53e-f1f4-52b5-a860-a550b2354169"
+      },
+      "target": [
+        {
+          "name": "Estimate",
+          "newValue": "3.00",
+          "oldValue": "",
+          "verb": "Set",
+          "summary": "Estimate was Set to '3.00'"
+        }
+      ],
+      "id": "d2a4bf02-ceb0-5dba-a610-5e9671fc2fb1"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98369",
+        "assetType": "Member",
+        "displayName": "Venus Bethly",
+        "username": "2338418",
+        "email": "vbethly@fedex.com",
+        "avatar": "NULL"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Story:236983:375676",
+        "assetType": "Story",
+        "displayName": "B4: Integration testing",
+        "number": "B-90758",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:209166"
+      },
+      "time": "2019-06-12T21:19:44.337Z",
+      "summary": "Venus Bethly Updated Story 'B4: Integration testing'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "b930e01c-a2e6-57d1-9246-1179ea229013"
+      },
+      "target": [
+        {
+          "name": "Description",
+          "verb": "SetLongValue",
+          "summary": "Description was Set to a new value"
+        }
+      ],
+      "id": "a46beb9e-a85f-5bc0-adc1-3d2433a0c8d6"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98369",
+        "assetType": "Member",
+        "displayName": "Venus Bethly",
+        "username": "2338418",
+        "email": "vbethly@fedex.com",
+        "avatar": "NULL"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Story:236983:375659",
+        "assetType": "Story",
+        "displayName": "B4: Integration testing",
+        "number": "B-90758",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:209166"
+      },
+      "time": "2019-06-12T21:18:21.98Z",
+      "summary": "Venus Bethly Updated Story 'B4: Integration testing'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "b2cc0b99-e986-5309-a6d0-7e8696574ced"
+      },
+      "target": [
+        {
+          "name": "Description",
+          "verb": "SetLongValue",
+          "summary": "Description was Set to a new value"
+        }
+      ],
+      "id": "f6d1bb75-2df2-5b1a-9715-ebafd436df5e"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98369",
+        "assetType": "Member",
+        "displayName": "Venus Bethly",
+        "username": "2338418",
+        "email": "vbethly@fedex.com",
+        "avatar": "NULL"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Story:236983:375656",
+        "assetType": "Story",
+        "displayName": "B4: Integration testing",
+        "number": "B-90758",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:209166"
+      },
+      "time": "2019-06-12T21:17:38.65Z",
+      "summary": "Venus Bethly Updated Story 'B4: Integration testing'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "86782eac-04e4-5c6a-a763-d988494b9819"
+      },
+      "target": [
+        {
+          "name": "Custom_AcceptanceCriteriaBacklogItem",
+          "verb": "SetLongValue",
+          "summary": "Custom_AcceptanceCriteriaBacklogItem was Set to a new value"
+        }
+      ],
+      "id": "17f6d1e9-85b1-5749-bd32-478967c3eb11"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98383",
+        "assetType": "Member",
+        "displayName": "Debbie Box",
+        "username": "752320",
+        "email": "debbie.box@fedex.com",
+        "avatar": "NULL"
+      },
+      "verb": "Created",
+      "object": {
+        "id": "Story:236983:375452",
+        "assetType": "Story",
+        "displayName": "B4: Integration testing",
+        "number": "B-90758",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:209166"
+      },
+      "time": "2019-06-12T20:54:44.44Z",
+      "summary": "Debbie Box Created Story 'B4: Integration testing'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "4fb7ea60-0a60-5e9d-9c70-667714b2c3d7"
+      },
+      "target": [
+        {
+          "name": "AssetType",
+          "newValue": "Story",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetType was Set to 'Story'"
+        },
+        {
+          "name": "DeliveryCategory",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "DeliveryCategory was Set to ''"
+        },
+        {
+          "name": "ComplexityRank",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "ComplexityRank was Set to ''"
+        },
+        {
+          "name": "ClassOfService",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "ClassOfService was Set to ''"
+        },
+        {
+          "name": "Benefits",
+          "verb": "SetLongValue",
+          "summary": "Benefits was Set to a new value"
+        },
+        {
+          "name": "SplitFrom",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "SplitFrom was Set to ''"
+        },
+        {
+          "name": "SecurityScope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "SecurityScope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Super",
+          "newValue": {
+            "id": "Epic:131248:373477",
+            "assetType": "Epic",
+            "displayName": "B4: View clean up work",
+            "number": "E-12064",
+            "assetState": "Active",
+            "scope": "Scope:137314:212594",
+            "colorName": "sunglow",
+            "team": "Team:130962:209166"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Super was Set to 'B4: View clean up work'"
+        },
+        {
+          "name": "Team",
+          "newValue": {
+            "id": "Team:130962:209166",
+            "assetType": "Team",
+            "displayName": "FXG - GSI - Bridge 4 - Postal Finance",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Team was Set to 'FXG - GSI - Bridge 4 - Postal Finance'"
+        },
+        {
+          "name": "IdentifiedIn",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "IdentifiedIn was Set to ''"
+        },
+        {
+          "name": "Parent",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Parent was Set to ''"
+        },
+        {
+          "name": "Category",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Category was Set to ''"
+        },
+        {
+          "name": "Risk",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Risk was Set to ''"
+        },
+        {
+          "name": "Customer",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Customer was Set to ''"
+        },
+        {
+          "name": "Source",
+          "newValue": "IT",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Source was Set to 'IT'"
+        },
+        {
+          "name": "Priority",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Priority was Set to ''"
+        },
+        {
+          "name": "Status",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Status was Set to ''"
+        },
+        {
+          "name": "Timebox",
+          "newValue": {
+            "id": "Timebox:138878:250479",
+            "assetType": "Timebox",
+            "displayName": "CY19 PI3.2",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Timebox was Set to 'CY19 PI3.2'"
+        },
+        {
+          "name": "Scope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Scope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Number",
+          "newValue": "B-90758",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Number was Set to 'B-90758'"
+        },
+        {
+          "name": "LastVersion",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "LastVersion was Set to ''"
+        },
+        {
+          "name": "OriginalEstimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "OriginalEstimate was Set to ''"
+        },
+        {
+          "name": "RequestedBy",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "RequestedBy was Set to ''"
+        },
+        {
+          "name": "Value",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Value was Set to ''"
+        },
+        {
+          "name": "Order",
+          "newValue": "1103978834",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1103978834'"
+        },
+        {
+          "name": "Estimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Estimate was Set to ''"
+        },
+        {
+          "name": "Reference",
+          "newValue": "ID: 529479",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Reference was Set to 'ID: 529479'"
+        },
+        {
+          "name": "ToDo",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "ToDo was Set to ''"
+        },
+        {
+          "name": "DetailEstimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "DetailEstimate was Set to ''"
+        },
+        {
+          "name": "Description",
+          "verb": "SetLongValue",
+          "summary": "Description was Set to a new value"
+        },
+        {
+          "name": "Name",
+          "newValue": "B4: Integration testing",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Name was Set to 'B4: Integration testing'"
+        },
+        {
+          "name": "AssetState",
+          "newValue": "Active",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetState was Set to 'Active'"
+        },
+        {
+          "name": "Custom_AcceptanceCriteriaBacklogItem",
+          "verb": "SetLongValue",
+          "summary": "Custom_AcceptanceCriteriaBacklogItem was Set to a new value"
+        },
+        {
+          "name": "Custom_WorkCategory",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Custom_WorkCategory was Set to ''"
+        }
+      ],
+      "id": "53eeca31-17f7-5ab3-abb0-dd74901c817d"
+    },
+    "headers": {}
+  }
+]

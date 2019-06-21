@@ -14,7 +14,7 @@ public class V1ObjectTest {
 
 	@Before
 	public void prepare() throws IOException {
-		json = FileUtils.readFileToString(new File(getClass().getClassLoader().getResource("json/test.json").getFile()), "UTF-8");
+		json = FileUtils.readFileToString(new File(getClass().getClassLoader().getResource("json/testV1Object.json").getFile()), "UTF-8");
 	}
 
 	@Test

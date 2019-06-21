@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -27,16 +28,19 @@ import lombok.extern.apachecommons.CommonsLog;
 import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
 
 @CommonsLog
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class WebMakeCards extends Application {
+	private final DatePicker dpAfter = new DatePicker();
 	private WebView webView;
 	private ComboBox<String> cbxPI;
 	private ComboBox<String> cbxSprint;
 	private ComboBox<String> cbxTeam;
 	private Button btnSubmit;
+
 
 	private Pane setupUI() {
 		Font bold = Font.font("System Bold", FontWeight.BOLD, 12.0);
@@ -74,6 +78,10 @@ public class WebMakeCards extends Application {
 		lblTeam.setText("Team:");
 		lblTeam.setFont(bold);
 		lblTeam.setPadding(new Insets(10, 10, 10, 0));
+		Label lblAfter = new Label();
+		lblAfter.setText("After:");
+		lblAfter.setFont(bold);
+		lblAfter.setPadding(new Insets(10, 10, 10, 0));
 		Label lblSpacer = new Label();
 		lblSpacer.setPadding(new Insets(20));
 		HBox btnBox = new HBox();
@@ -97,7 +105,7 @@ public class WebMakeCards extends Application {
 		Label lblBtnSpacer = new Label();
 		lblBtnSpacer.setPadding(new Insets(20));
 		btnBox.getChildren().addAll(btnSubmit, lblBtnSpacer, btnExit);
-		controlContainer.getChildren().addAll(lblPI, cbxPI, lblSprint, cbxSprint, lblTeam, cbxTeam, lblSpacer, btnBox);
+		controlContainer.getChildren().addAll(lblPI, cbxPI, lblSprint, cbxSprint, lblTeam, cbxTeam, lblAfter, dpAfter, lblSpacer, btnBox);
 		container.getChildren().addAll(webContainer, leftSpacer, controlContainer, rightSpacer);
 		return container;
 	}
@@ -130,6 +138,10 @@ public class WebMakeCards extends Application {
 			}
 			sb.append("Team.Name='").append(cbxTeam.getSelectionModel().getSelectedItem()).append("'");
 		}
+		LocalDate afterDate = dpAfter.getValue();
+		if (afterDate != null) {
+			sb.append(";");
+		}
 		return sb.toString();
 	}
 
@@ -155,7 +167,7 @@ public class WebMakeCards extends Application {
 		stage.setScene(new Scene(setupUI()));
 		stage.show();
 		stage.setResizable(false);
-		WebProcess v1ApiService = new V1ApiService();
+		WebProcess v1ApiService = new V1ApiService(dpAfter);
 		v1ApiService.process(this);
 	}
 }
