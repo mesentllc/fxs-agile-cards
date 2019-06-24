@@ -1,0 +1,1506 @@
+[
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Closed",
+      "object": {
+        "id": "Task:250206:421792",
+        "assetType": "Task",
+        "displayName": "Code review Chris' solution",
+        "number": "TK-31115",
+        "assetState": "Closed",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-24T12:11:20.923Z",
+      "summary": "Andrew Stone Closed Task 'Code review Chris' solution'.",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "0ceaab38-aeac-5412-a0fb-4c32b3a9fbd5"
+      },
+      "target": [],
+      "id": "2975f843-c3b8-5823-9d3a-93d49b89bc76"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:250206:421791",
+        "assetType": "Task",
+        "displayName": "Code review Chris' solution",
+        "number": "TK-31115",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-24T12:11:13.983Z",
+      "summary": "Andrew Stone Updated Task 'Code review Chris' solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "78f5732f-7dce-59c9-a648-ceed457efb27"
+      },
+      "target": [
+        {
+          "name": "Status",
+          "newValue": "Completed",
+          "oldValue": "In Progress",
+          "verb": "Set",
+          "summary": "Status was Set to 'Completed'"
+        }
+      ],
+      "id": "afb3da09-ea07-51d8-8fc8-a7b6188b7c0a"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:250206:421788",
+        "assetType": "Task",
+        "displayName": "Code review Chris' solution",
+        "number": "TK-31115",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-24T12:11:05.973Z",
+      "summary": "Andrew Stone Updated Task 'Code review Chris' solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "ef15dd20-72e2-51cb-b681-974ef2749b4c"
+      },
+      "target": [
+        {
+          "name": "Status",
+          "newValue": "In Progress",
+          "oldValue": "",
+          "verb": "Set",
+          "summary": "Status was Set to 'In Progress'"
+        }
+      ],
+      "id": "889555ed-11a8-55b5-a3ea-c848f88c5484"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:250206:421787",
+        "assetType": "Task",
+        "displayName": "Code review Chris' solution",
+        "number": "TK-31115",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-24T12:11:02.92Z",
+      "summary": "Andrew Stone Updated Task 'Code review Chris' solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "e06b1137-5faa-5c6a-ac3e-cf21c1d17bd8"
+      },
+      "target": [
+        {
+          "name": "Owners",
+          "newValue": {
+            "id": "Member:98388:209494",
+            "assetType": "Member",
+            "displayName": "Andrew Stone",
+            "username": "3631054",
+            "email": "andrew.stone@fedex.com",
+            "avatar": "Image:137741:209493"
+          },
+          "oldValue": null,
+          "verb": "Added",
+          "summary": "Added Andrew Stone to Owners"
+        }
+      ],
+      "id": "d0aabed0-b400-5da6-bc5d-4fbdbc360b41"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Created",
+      "object": {
+        "id": "Task:250206:421786",
+        "assetType": "Task",
+        "displayName": "Code review Chris' solution",
+        "number": "TK-31115",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-24T12:10:58.967Z",
+      "summary": "Andrew Stone Created Task 'Code review Chris' solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "5c77ca15-95ac-5125-bf9c-d406a77da5e1"
+      },
+      "target": [
+        {
+          "name": "AssetType",
+          "newValue": "Task",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetType was Set to 'Task'"
+        },
+        {
+          "name": "SecurityScope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "SecurityScope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Super",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Super was Set to ''"
+        },
+        {
+          "name": "Team",
+          "newValue": {
+            "id": "Team:130962:383991",
+            "assetType": "Team",
+            "displayName": "FXG - GSI - Bridge 4",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Team was Set to 'FXG - GSI - Bridge 4'"
+        },
+        {
+          "name": "Parent",
+          "newValue": {
+            "id": "Story:236930:410784",
+            "assetType": "Story",
+            "displayName": "B4: SPIKE Researching WSSO Implementation with Angular",
+            "number": "B-90748",
+            "assetState": "Active",
+            "scope": "Scope:137314:212594",
+            "colorName": null,
+            "team": "Team:130962:383991"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Parent was Set to 'B4: SPIKE Researching WSSO Implementation with Angular'"
+        },
+        {
+          "name": "Category",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Category was Set to ''"
+        },
+        {
+          "name": "Source",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Source was Set to ''"
+        },
+        {
+          "name": "Status",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Status was Set to ''"
+        },
+        {
+          "name": "Customer",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Customer was Set to ''"
+        },
+        {
+          "name": "Timebox",
+          "newValue": {
+            "id": "Timebox:138878:250479",
+            "assetType": "Timebox",
+            "displayName": "CY19 PI3.2",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Timebox was Set to 'CY19 PI3.2'"
+        },
+        {
+          "name": "Scope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Scope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Number",
+          "newValue": "TK-31115",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Number was Set to 'TK-31115'"
+        },
+        {
+          "name": "LastVersion",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "LastVersion was Set to ''"
+        },
+        {
+          "name": "Order",
+          "newValue": "1077614347",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1077614347'"
+        },
+        {
+          "name": "Estimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Estimate was Set to ''"
+        },
+        {
+          "name": "Reference",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Reference was Set to ''"
+        },
+        {
+          "name": "ToDo",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "ToDo was Set to ''"
+        },
+        {
+          "name": "DetailEstimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "DetailEstimate was Set to ''"
+        },
+        {
+          "name": "Description",
+          "verb": "SetLongValue",
+          "summary": "Description was Set to a new value"
+        },
+        {
+          "name": "Name",
+          "newValue": "Code review Chris' solution",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Name was Set to 'Code review Chris' solution'"
+        },
+        {
+          "name": "AssetState",
+          "newValue": "Active",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetState was Set to 'Active'"
+        }
+      ],
+      "id": "6a07f29e-492c-5c90-ae8f-c56d494ba5d7"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Closed",
+      "object": {
+        "id": "Task:247667:421783",
+        "assetType": "Task",
+        "displayName": "Implement Alex's solution",
+        "number": "TK-30201",
+        "assetState": "Closed",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-24T12:10:41.69Z",
+      "summary": "Andrew Stone Closed Task 'Implement Alex's solution'.",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "8ac8581e-9f98-5547-8742-312aade6e345"
+      },
+      "target": [],
+      "id": "36853491-1251-534b-a83e-8de204598330"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247667:421782",
+        "assetType": "Task",
+        "displayName": "Implement Alex's solution",
+        "number": "TK-30201",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-24T12:10:41.683Z",
+      "summary": "Andrew Stone Updated Task 'Implement Alex's solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "86130c62-baf3-5290-a4a6-5c967c1a284a"
+      },
+      "target": [
+        {
+          "name": "Order",
+          "newValue": "1076620920",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1076620920'"
+        }
+      ],
+      "id": "ec6fc1e6-5a80-5d63-ab06-b5826f24f211"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247667:421781",
+        "assetType": "Task",
+        "displayName": "Implement Alex's solution",
+        "number": "TK-30201",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-24T12:10:38.453Z",
+      "summary": "Andrew Stone Updated Task 'Implement Alex's solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "40946476-f675-566e-9d9e-976496ebc1ac"
+      },
+      "target": [
+        {
+          "name": "Status",
+          "newValue": "Completed",
+          "oldValue": "In Progress",
+          "verb": "Set",
+          "summary": "Status was Set to 'Completed'"
+        }
+      ],
+      "id": "11ae4337-9db5-5685-9ee4-a09789b78cf1"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247667:421779",
+        "assetType": "Task",
+        "displayName": "Implement Alex's solution",
+        "number": "TK-30201",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-24T12:10:34.39Z",
+      "summary": "Andrew Stone Updated Task 'Implement Alex's solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "b758499b-7aca-5480-996d-a15fd9d962db"
+      },
+      "target": [
+        {
+          "name": "ToDo",
+          "newValue": "0.00",
+          "oldValue": "1.00",
+          "verb": "Set",
+          "summary": "ToDo was Set to '0.00'"
+        }
+      ],
+      "id": "b22c449f-0d66-5db8-a235-4a793b5c468e"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:249064:417783",
+        "assetType": "Task",
+        "displayName": "Code Review solution",
+        "number": "TK-30847",
+        "assetState": "Closed",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-21T14:07:17.22Z",
+      "summary": "Christopher Magnuson Updated Task 'Code Review solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "9cb39164-ef7c-57d5-a9e0-ed0cfa1ccb2e"
+      },
+      "target": [
+        {
+          "name": "ToDo",
+          "newValue": "0.00",
+          "oldValue": "1.00",
+          "verb": "Set",
+          "summary": "ToDo was Set to '0.00'"
+        }
+      ],
+      "id": "ec111e2d-bb17-5f5b-ba01-4324d5312c59"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Closed",
+      "object": {
+        "id": "Task:249064:417783",
+        "assetType": "Task",
+        "displayName": "Code Review solution",
+        "number": "TK-30847",
+        "assetState": "Closed",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-21T14:07:17.22Z",
+      "summary": "Christopher Magnuson Closed Task 'Code Review solution'.",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "9cb39164-ef7c-57d5-a9e0-ed0cfa1ccb2e"
+      },
+      "target": [],
+      "id": "5c0a8602-4494-561f-b7fe-f323b8fae578"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:249064:417782",
+        "assetType": "Task",
+        "displayName": "Code Review solution",
+        "number": "TK-30847",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-21T14:07:17.21Z",
+      "summary": "Christopher Magnuson Updated Task 'Code Review solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "78e2dea8-af3e-57ad-a9f2-38c953500f9e"
+      },
+      "target": [
+        {
+          "name": "Order",
+          "newValue": "1077216234",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1077216234'"
+        }
+      ],
+      "id": "44146b57-3050-5d02-b940-51e6da3ae3cf"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98399",
+        "assetType": "Member",
+        "displayName": "Christopher Magnuson",
+        "username": "3666249",
+        "email": "christopher.magnuson@fedex.com",
+        "avatar": "Image:170746"
+      },
+      "verb": "Created",
+      "object": {
+        "id": "Task:249064:417779",
+        "assetType": "Task",
+        "displayName": "Code Review solution",
+        "number": "TK-30847",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-21T14:07:05.953Z",
+      "summary": "Christopher Magnuson Created Task 'Code Review solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "d840108f-f2cc-55c5-bee8-79a6feb855f1"
+      },
+      "target": [
+        {
+          "name": "AssetType",
+          "newValue": "Task",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetType was Set to 'Task'"
+        },
+        {
+          "name": "SecurityScope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "SecurityScope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Super",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Super was Set to ''"
+        },
+        {
+          "name": "Team",
+          "newValue": {
+            "id": "Team:130962:383991",
+            "assetType": "Team",
+            "displayName": "FXG - GSI - Bridge 4",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Team was Set to 'FXG - GSI - Bridge 4'"
+        },
+        {
+          "name": "Parent",
+          "newValue": {
+            "id": "Story:236930:410784",
+            "assetType": "Story",
+            "displayName": "B4: SPIKE Researching WSSO Implementation with Angular",
+            "number": "B-90748",
+            "assetState": "Active",
+            "scope": "Scope:137314:212594",
+            "colorName": null,
+            "team": "Team:130962:383991"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Parent was Set to 'B4: SPIKE Researching WSSO Implementation with Angular'"
+        },
+        {
+          "name": "Category",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Category was Set to ''"
+        },
+        {
+          "name": "Source",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Source was Set to ''"
+        },
+        {
+          "name": "Status",
+          "newValue": "Completed",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Status was Set to 'Completed'"
+        },
+        {
+          "name": "Customer",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Customer was Set to ''"
+        },
+        {
+          "name": "Timebox",
+          "newValue": {
+            "id": "Timebox:138878:250479",
+            "assetType": "Timebox",
+            "displayName": "CY19 PI3.2",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Timebox was Set to 'CY19 PI3.2'"
+        },
+        {
+          "name": "Scope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Scope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Number",
+          "newValue": "TK-30847",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Number was Set to 'TK-30847'"
+        },
+        {
+          "name": "LastVersion",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "LastVersion was Set to ''"
+        },
+        {
+          "name": "Order",
+          "newValue": "1077216234",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1077216234'"
+        },
+        {
+          "name": "Estimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Estimate was Set to ''"
+        },
+        {
+          "name": "Reference",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Reference was Set to ''"
+        },
+        {
+          "name": "ToDo",
+          "newValue": "1.00",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "ToDo was Set to '1.00'"
+        },
+        {
+          "name": "Owners",
+          "newValue": {
+            "id": "Member:98399:268412",
+            "assetType": "Member",
+            "displayName": "Christopher Magnuson",
+            "username": "3666249",
+            "email": "christopher.magnuson@fedex.com",
+            "avatar": "Image:170746:268411"
+          },
+          "oldValue": null,
+          "verb": "Added",
+          "summary": "Added Christopher Magnuson to Owners"
+        },
+        {
+          "name": "DetailEstimate",
+          "newValue": "1.00",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "DetailEstimate was Set to '1.00'"
+        },
+        {
+          "name": "Description",
+          "verb": "SetLongValue",
+          "summary": "Description was Set to a new value"
+        },
+        {
+          "name": "Name",
+          "newValue": "Code Review solution",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Name was Set to 'Code Review solution'"
+        },
+        {
+          "name": "AssetState",
+          "newValue": "Active",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetState was Set to 'Active'"
+        }
+      ],
+      "id": "14204bad-08f4-5860-950f-fc4d890a4071"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Closed",
+      "object": {
+        "id": "Task:247662:417151",
+        "assetType": "Task",
+        "displayName": "Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF",
+        "number": "TK-30199",
+        "assetState": "Closed",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-21T13:10:56.157Z",
+      "summary": "Andrew Stone Closed Task 'Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF'.",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "4357770f-2ce8-5a57-98aa-ff1400a9a4e2"
+      },
+      "target": [],
+      "id": "6351e032-ed57-5b40-a89e-cef6f3daef1d"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247662:417150",
+        "assetType": "Task",
+        "displayName": "Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF",
+        "number": "TK-30199",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-21T13:10:56.147Z",
+      "summary": "Andrew Stone Updated Task 'Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "e6345af1-9f2a-5f90-bd8e-a203849160e1"
+      },
+      "target": [
+        {
+          "name": "Order",
+          "newValue": "1076618596",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1076618596'"
+        }
+      ],
+      "id": "3b890a16-ad1c-55e4-b881-075145996820"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247667:412141",
+        "assetType": "Task",
+        "displayName": "Implement Alex's solution",
+        "number": "TK-30201",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-20T17:48:13.07Z",
+      "summary": "Andrew Stone Updated Task 'Implement Alex's solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "29cc37f1-ecc3-5e40-9718-029e145ac213"
+      },
+      "target": [
+        {
+          "name": "ToDo",
+          "newValue": "1.00",
+          "oldValue": "",
+          "verb": "Set",
+          "summary": "ToDo was Set to '1.00'"
+        }
+      ],
+      "id": "79ae752d-a690-55f6-8e80-1a6655183ac3"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247667:412120",
+        "assetType": "Task",
+        "displayName": "Implement Alex's solution",
+        "number": "TK-30201",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-20T17:48:00.01Z",
+      "summary": "Andrew Stone Updated Task 'Implement Alex's solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "e5379ddf-f86f-55ed-9038-54a2794167aa"
+      },
+      "target": [
+        {
+          "name": "Order",
+          "newValue": "1076620920",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1076620920'"
+        }
+      ],
+      "id": "a760d816-fc0d-5898-b10a-f6a02700af15"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247667:412119",
+        "assetType": "Task",
+        "displayName": "Implement Alex's solution",
+        "number": "TK-30201",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-20T17:47:58.13Z",
+      "summary": "Andrew Stone Updated Task 'Implement Alex's solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "80f5c0bb-edb7-542e-afd9-2a3705883889"
+      },
+      "target": [
+        {
+          "name": "Status",
+          "newValue": "In Progress",
+          "oldValue": "",
+          "verb": "Set",
+          "summary": "Status was Set to 'In Progress'"
+        }
+      ],
+      "id": "0f5fccb6-c037-586a-b805-b4dc7c5d272f"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247667:412118",
+        "assetType": "Task",
+        "displayName": "Implement Alex's solution",
+        "number": "TK-30201",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-20T17:47:56.44Z",
+      "summary": "Andrew Stone Updated Task 'Implement Alex's solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "20bc20b6-a15d-534a-94bd-efc8c28e6da0"
+      },
+      "target": [
+        {
+          "name": "Owners",
+          "newValue": {
+            "id": "Member:98388:209494",
+            "assetType": "Member",
+            "displayName": "Andrew Stone",
+            "username": "3631054",
+            "email": "andrew.stone@fedex.com",
+            "avatar": "Image:137741:209493"
+          },
+          "oldValue": null,
+          "verb": "Added",
+          "summary": "Added Andrew Stone to Owners"
+        }
+      ],
+      "id": "aa589d57-ab7a-5911-984d-e5fcbc05f795"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247667:412115",
+        "assetType": "Task",
+        "displayName": "Implement Alex's solution",
+        "number": "TK-30201",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-20T17:47:52.65Z",
+      "summary": "Andrew Stone Updated Task 'Implement Alex's solution'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "3a887608-b8b2-5811-8d4e-537fd123e96b"
+      },
+      "target": [
+        {
+          "name": "Name",
+          "newValue": "Implement Alex's solution",
+          "oldValue": "Implement Alex",
+          "verb": "Set",
+          "summary": "Name was Set to 'Implement Alex's solution'"
+        }
+      ],
+      "id": "8b0fc25b-7957-5335-8b71-8ba78738b768"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Created",
+      "object": {
+        "id": "Task:247667:412088",
+        "assetType": "Task",
+        "displayName": "Implement Alex",
+        "number": "TK-30201",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-20T17:47:40.673Z",
+      "summary": "Andrew Stone Created Task 'Implement Alex'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "2e4a5171-5394-5b98-bd91-ea670ac27112"
+      },
+      "target": [
+        {
+          "name": "AssetType",
+          "newValue": "Task",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetType was Set to 'Task'"
+        },
+        {
+          "name": "SecurityScope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "SecurityScope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Super",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Super was Set to ''"
+        },
+        {
+          "name": "Team",
+          "newValue": {
+            "id": "Team:130962:383991",
+            "assetType": "Team",
+            "displayName": "FXG - GSI - Bridge 4",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Team was Set to 'FXG - GSI - Bridge 4'"
+        },
+        {
+          "name": "Parent",
+          "newValue": {
+            "id": "Story:236930:410784",
+            "assetType": "Story",
+            "displayName": "B4: SPIKE Researching WSSO Implementation with Angular",
+            "number": "B-90748",
+            "assetState": "Active",
+            "scope": "Scope:137314:212594",
+            "colorName": null,
+            "team": "Team:130962:383991"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Parent was Set to 'B4: SPIKE Researching WSSO Implementation with Angular'"
+        },
+        {
+          "name": "Category",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Category was Set to ''"
+        },
+        {
+          "name": "Source",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Source was Set to ''"
+        },
+        {
+          "name": "Status",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Status was Set to ''"
+        },
+        {
+          "name": "Customer",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Customer was Set to ''"
+        },
+        {
+          "name": "Timebox",
+          "newValue": {
+            "id": "Timebox:138878:250479",
+            "assetType": "Timebox",
+            "displayName": "CY19 PI3.2",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Timebox was Set to 'CY19 PI3.2'"
+        },
+        {
+          "name": "Scope",
+          "newValue": {
+            "id": "Scope:137314:212594",
+            "assetType": "Scope",
+            "displayName": "FXG - GSI CY19 PI3",
+            "assetState": "Active"
+          },
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Scope was Set to 'FXG - GSI CY19 PI3'"
+        },
+        {
+          "name": "Number",
+          "newValue": "TK-30201",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Number was Set to 'TK-30201'"
+        },
+        {
+          "name": "LastVersion",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "LastVersion was Set to ''"
+        },
+        {
+          "name": "Order",
+          "newValue": "1076620920",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Order was Set to '1076620920'"
+        },
+        {
+          "name": "Estimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Estimate was Set to ''"
+        },
+        {
+          "name": "Reference",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Reference was Set to ''"
+        },
+        {
+          "name": "ToDo",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "ToDo was Set to ''"
+        },
+        {
+          "name": "DetailEstimate",
+          "newValue": "",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "DetailEstimate was Set to ''"
+        },
+        {
+          "name": "Description",
+          "verb": "SetLongValue",
+          "summary": "Description was Set to a new value"
+        },
+        {
+          "name": "Name",
+          "newValue": "Implement Alex",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "Name was Set to 'Implement Alex'"
+        },
+        {
+          "name": "AssetState",
+          "newValue": "Active",
+          "oldValue": null,
+          "verb": "Set",
+          "summary": "AssetState was Set to 'Active'"
+        }
+      ],
+      "id": "4811e586-5332-5573-b301-5bbe6cf19daf"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247662:412084",
+        "assetType": "Task",
+        "displayName": "Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF",
+        "number": "TK-30199",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-20T17:47:25.167Z",
+      "summary": "Andrew Stone Updated Task 'Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "f3cad94f-c37b-57ef-b104-2a78d874720a"
+      },
+      "target": [
+        {
+          "name": "Status",
+          "newValue": "Completed",
+          "oldValue": "In Progress",
+          "verb": "Set",
+          "summary": "Status was Set to 'Completed'"
+        }
+      ],
+      "id": "33f5787e-3ba7-534b-9cc3-307128cfa60a"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247662:412082",
+        "assetType": "Task",
+        "displayName": "Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF",
+        "number": "TK-30199",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-20T17:47:11.897Z",
+      "summary": "Andrew Stone Updated Task 'Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "2cac303c-f273-5a83-8f94-0fe68ab56cc7"
+      },
+      "target": [
+        {
+          "name": "ToDo",
+          "newValue": "0.00",
+          "oldValue": "",
+          "verb": "Set",
+          "summary": "ToDo was Set to '0.00'"
+        }
+      ],
+      "id": "51e5bfbc-b002-5384-94a0-68c558f8114e"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247662:412077",
+        "assetType": "Task",
+        "displayName": "Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF",
+        "number": "TK-30199",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-20T17:47:05.26Z",
+      "summary": "Andrew Stone Updated Task 'Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "f1816a81-c441-5ff6-9966-4ca623f3ea2e"
+      },
+      "target": [
+        {
+          "name": "Status",
+          "newValue": "In Progress",
+          "oldValue": "",
+          "verb": "Set",
+          "summary": "Status was Set to 'In Progress'"
+        }
+      ],
+      "id": "53517b5c-3acb-5edc-b361-84e0dcd7ce91"
+    },
+    "headers": {}
+  },
+  {
+    "body": {
+      "actor": {
+        "id": "Member:98388",
+        "assetType": "Member",
+        "displayName": "Andrew Stone",
+        "username": "3631054",
+        "email": "andrew.stone@fedex.com",
+        "avatar": "Image:137741"
+      },
+      "verb": "Updated",
+      "object": {
+        "id": "Task:247662:412076",
+        "assetType": "Task",
+        "displayName": "Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF",
+        "number": "TK-30199",
+        "assetState": "Active",
+        "scope": "Scope:137314:212594",
+        "colorName": null,
+        "team": "Team:130962:383991"
+      },
+      "time": "2019-06-20T17:47:02.413Z",
+      "summary": "Andrew Stone Updated Task 'Contact Alex Mantsch (ACTUALLY has a MODERN angular app in PCF'",
+      "provider": {
+        "stream": "MetaStream",
+        "guid": "a810565e-222a-5d6d-a69b-fd6b99d06a0c"
+      },
+      "target": [
+        {
+          "name": "Owners",
+          "newValue": {
+            "id": "Member:98388:209494",
+            "assetType": "Member",
+            "displayName": "Andrew Stone",
+            "username": "3631054",
+            "email": "andrew.stone@fedex.com",
+            "avatar": "Image:137741:209493"
+          },
+          "oldValue": null,
+          "verb": "Added",
+          "summary": "Added Andrew Stone to Owners"
+        }
+      ],
+      "id": "27fa3a25-1906-588f-b7e6-ccaf0c3e4399"
+    },
+    "headers": {}
+  }
+]

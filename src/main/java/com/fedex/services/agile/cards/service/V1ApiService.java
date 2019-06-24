@@ -12,6 +12,7 @@ import com.fedex.services.agile.cards.model.V1Value;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.web.WebEngine;
@@ -34,13 +35,15 @@ public class V1ApiService extends WebProcess {
 	private static final ObjectMapper mapper = new ObjectMapper();
 	private static final String url = "https://www19.v1host.com/FedEx/sso.html?TargetResource=" +
 	                                  "https://www19.v1host.com/FedEx/ApiConsole.mvc/";
-	private static final String instructHtml = "<br/><br /><p style=\"font-size:x-large;\">So not to print all the Epics, Features and User Stories currently " +
+	private static final String instructHtml = "<br/><br /><p style=\"font-size:large;\">So not to print all the Epics, Features and User Stories currently " +
 	                                           "found in the FedEx VersionOne Database, you are required to select <u>at least one</u> of the dropdown items on the " +
 	                                           "right (Program Increment, Sprint and/or Team) before you will be able to press the \"Extract\" button on " +
-	                                           "the right.</p><p style=\"font-size:x-large;\">It will pop-up the print dialog box once completed, so you " +
+	                                           "the right.</p><p style=\"font-size:large;\">It will pop-up the print dialog box once completed, so you " +
 	                                           "are able to print out the extracted cards. If you wish to save the cards to a PDF file, select " +
-	                                           "\"Microsoft Print to PDF\" from the Printer dialog box.</p>";
+	                                           "\"Microsoft Print to PDF\" from the Printer dialog box.</p><p style=\"font-size:large;\">The \"Created After\"" +
+	                                           " is optional, and used to further reduce the number of cards that will be printed.</p>";
 	private final List<TaskModel> stories = new ArrayList<>();
+	private final Button btnExtract;
 	private final DatePicker dpAfter;
 	private WebMakeCards app;
 	private WebEngine engine;
@@ -48,7 +51,8 @@ public class V1ApiService extends WebProcess {
 	private Map<String, TaskModel> storyMap;
 	private String extraUrl = null;
 
-	public V1ApiService(DatePicker dpAfter) {
+	public V1ApiService(Button btnExtract, DatePicker dpAfter) {
+		this.btnExtract = btnExtract;
 		this.dpAfter = dpAfter;
 	}
 
@@ -142,9 +146,7 @@ public class V1ApiService extends WebProcess {
 					});
 				}
 				else {
-					Alert alert = new Alert(Alert.AlertType.INFORMATION, "No stories found for current selection.", ButtonType.OK);
-					alert.setTitle("No stories.");
-					alert.showAndWait();
+					notifyNoStories();
 				}
 				break;
 			case HISTORY:
@@ -163,14 +165,27 @@ public class V1ApiService extends WebProcess {
 					}
 					else {
 						extraUrl = null;
-						APICardService.process(stories, null);
-						System.exit(0);
+						if (stories.size() > 0) {
+							APICardService.process(stories, null);
+							System.exit(0);
+						}
+						else {
+							notifyNoStories();
+						}
 					}
 				}
 				catch (IOException | DRException ioe) {
 					log.error("Exception Caught: ", ioe);
 				}
 		}
+	}
+
+	private void notifyNoStories() {
+		stopSequence = StopSequenceEnum.CARDDATA;
+		Alert alert = new Alert(Alert.AlertType.INFORMATION, "No stories found for current selection.", ButtonType.OK);
+		alert.setTitle("No stories.");
+		alert.showAndWait();
+		btnExtract.setDisable(false);
 	}
 
 	private void printCardsAndExitIfNoDate() {
@@ -189,14 +204,20 @@ public class V1ApiService extends WebProcess {
 	}
 
 	private boolean createdAfterDate(History[] historyArray) {
+		LocalDate earliestDate = LocalDate.now();
 		for (History history : historyArray) {
 			HistoryRecord historyRecord = history.getHistoryRecord();
-			if ("Story".equals(historyRecord.getHistoryObject().getAssetType()) &&
-			    "Created".equals(historyRecord.getVerb())) {
-				return dpAfter.getValue().isBefore(LocalDate.parse(historyRecord.getTime(), DateTimeFormatter.ISO_DATE_TIME));
+			LocalDate recordDate = LocalDate.parse(historyRecord.getTime(), DateTimeFormatter.ISO_DATE_TIME);
+			if (earliestDate.isAfter(recordDate)) {
+				earliestDate = recordDate;
+			}
+			if ("Story".equals(historyRecord.getHistoryObject().getAssetType())) {
+				if ("Created".equals(historyRecord.getVerb())) {
+					return dpAfter.getValue().isBefore(recordDate);
+				}
 			}
 		}
-		return true;
+		return dpAfter.getValue().isBefore(earliestDate);
 	}
 
 	private String retrieveJsonFromHTML() {

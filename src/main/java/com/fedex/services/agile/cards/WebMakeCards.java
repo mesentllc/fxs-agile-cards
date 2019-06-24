@@ -79,7 +79,7 @@ public class WebMakeCards extends Application {
 		lblTeam.setFont(bold);
 		lblTeam.setPadding(new Insets(10, 10, 10, 0));
 		Label lblAfter = new Label();
-		lblAfter.setText("After:");
+		lblAfter.setText("Created After:");
 		lblAfter.setFont(bold);
 		lblAfter.setPadding(new Insets(10, 10, 10, 0));
 		Label lblSpacer = new Label();
@@ -138,10 +138,6 @@ public class WebMakeCards extends Application {
 			}
 			sb.append("Team.Name='").append(cbxTeam.getSelectionModel().getSelectedItem()).append("'");
 		}
-		LocalDate afterDate = dpAfter.getValue();
-		if (afterDate != null) {
-			sb.append(";");
-		}
 		return sb.toString();
 	}
 
@@ -167,7 +163,7 @@ public class WebMakeCards extends Application {
 		stage.setScene(new Scene(setupUI()));
 		stage.show();
 		stage.setResizable(false);
-		WebProcess v1ApiService = new V1ApiService(dpAfter);
+		WebProcess v1ApiService = new V1ApiService(btnSubmit, dpAfter);
 		v1ApiService.process(this);
 	}
 }
