@@ -42,7 +42,10 @@ public class WebMakeCards extends Application {
 	private Button btnSubmit;
 	private RadioButton rbFeatures;
 	private RadioButton rbUserStories;
+	private RadioButton rbOnePerPage;
+	private RadioButton rbFourPerPage;
 	private ToggleGroup tgType;
+	private ToggleGroup tgPerPage;
 	private WebProcess v1ApiService;
 
 	private Pane setupUI() {
@@ -79,10 +82,21 @@ public class WebMakeCards extends Application {
 			rbUserStories.setDisable(true);
 			rbFeatures.setDisable(true);
 			btnType.setDisable(true);
-			v1ApiService = new V1ApiService(btnSubmit, dpAfter, rbFeatures);
+			v1ApiService = new V1ApiService(btnSubmit, dpAfter, rbFeatures.isSelected(), rbOnePerPage);
 			v1ApiService.process(this);
 		});
 		typeContainer.getChildren().addAll(rbUserStories, rbFeatures, btnType);
+		Label lblPerPage = new Label("Number of cards per page:");
+		lblPerPage.setFont(bold);
+		tgPerPage = new ToggleGroup();
+		rbOnePerPage = new RadioButton("1 Card");
+		rbOnePerPage.setPadding(new Insets(0, 20, 0, 0));
+		rbOnePerPage.setToggleGroup(tgPerPage);
+		rbFourPerPage = new RadioButton("4 Cards");
+		rbFourPerPage.setSelected(true);
+		rbFourPerPage.setToggleGroup(tgPerPage);
+		HBox pageContainer = new HBox();
+		pageContainer.getChildren().addAll(rbOnePerPage, rbFourPerPage);
 		Label lblPI = new Label();
 		lblPI.setText("Program Increment:");
 		lblPI.setFont(bold);
@@ -131,8 +145,8 @@ public class WebMakeCards extends Application {
 		Label lblBtnSpacer = new Label();
 		lblBtnSpacer.setPadding(new Insets(20));
 		btnBox.getChildren().addAll(btnSubmit, lblBtnSpacer, btnExit);
-		controlContainer.getChildren().addAll(lblType, typeContainer, lblPI, cbxPI, lblSprint, cbxSprint,
-			lblTeam, cbxTeam, lblAfter, dpAfter, lblSpacer, btnBox);
+		controlContainer.getChildren().addAll(lblType, typeContainer, lblPerPage, pageContainer, lblPI, cbxPI,
+			lblSprint, cbxSprint, lblTeam, cbxTeam, lblAfter, dpAfter, lblSpacer, btnBox);
 		container.getChildren().addAll(webContainer, leftSpacer, controlContainer, rightSpacer);
 		return container;
 	}

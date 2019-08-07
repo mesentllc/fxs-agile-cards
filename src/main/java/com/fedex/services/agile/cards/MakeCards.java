@@ -5,6 +5,7 @@ import com.fedex.services.agile.cards.dao.FileTaskDao;
 import com.fedex.services.agile.cards.model.TaskModel;
 import com.fedex.services.agile.cards.model.V1Object;
 import com.fedex.services.agile.cards.service.APICardService;
+import javafx.scene.control.RadioButton;
 import lombok.extern.apachecommons.CommonsLog;
 import net.sf.dynamicreports.report.exception.DRException;
 
@@ -18,7 +19,7 @@ public class MakeCards {
 		ObjectMapper mapper = new ObjectMapper();
 		V1Object v1Response = mapper.readValue(dao.retrieveJson(filename), V1Object.class);
 		List<TaskModel> storyList = new APICardService().convert(v1Response);
-		APICardService.process(storyList, null, false);
+		APICardService.process(storyList, null, false, new RadioButton());
 	}
 
 	public static void main(String[] args) throws DRException, IOException {

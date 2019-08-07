@@ -23,6 +23,7 @@ import com.fedex.services.agile.cards.report.CardReport;
 import com.fedex.services.agile.cards.report.EpicTaskCreator;
 import com.fedex.services.agile.cards.report.FeatureTaskCreator;
 import com.fedex.services.agile.cards.report.V1CardCreator;
+import javafx.scene.control.RadioButton;
 import lombok.extern.apachecommons.CommonsLog;
 import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
 import net.sf.dynamicreports.report.exception.DRException;
@@ -56,13 +57,13 @@ public class APICardService {
 		return storyMap;
 	}
 
-	public static void process(List<TaskModel> storyList, String outFile, boolean features) throws DRException, IOException {
+	public static void process(List<TaskModel> storyList, String outFile, boolean features, RadioButton rbOnePage) throws DRException, IOException {
 		CardReport cardReport;
 		if (features) {
-			cardReport = new EpicTaskCreator();
+			cardReport = new EpicTaskCreator(rbOnePage.isSelected());
 		}
 		else {
-			cardReport = new V1CardCreator();
+			cardReport = new V1CardCreator(rbOnePage.isSelected());
 		}
 		JasperReportBuilder report = cardReport.buildCards(storyList);
 		if (outFile != null && outFile.length() > 0) {

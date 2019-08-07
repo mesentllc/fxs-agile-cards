@@ -47,17 +47,19 @@ public class V1ApiService extends WebProcess {
 	private final List<TaskModel> stories = new ArrayList<>();
 	private final Button btnExtract;
 	private final DatePicker dpAfter;
-	private final RadioButton rbFeatures;
+	private final RadioButton rbOnePage;
+	private final boolean features;
 	private WebMakeCards app;
 	private WebEngine engine;
 	private StopSequenceEnum stopSequence;
 	private Map<String, TaskModel> storyMap;
 	private String extraUrl = null;
 
-	public V1ApiService(Button btnExtract, DatePicker dpAfter, RadioButton rbFeatures) {
+	public V1ApiService(Button btnExtract, DatePicker dpAfter,  boolean features, RadioButton rbOnePage) {
 		this.btnExtract = btnExtract;
 		this.dpAfter = dpAfter;
-		this.rbFeatures = rbFeatures;
+		this.features = features;
+		this.rbOnePage = rbOnePage;
 	}
 
 	private ObservableList<String> piItems(V1Object v1Object) {
@@ -115,7 +117,7 @@ public class V1ApiService extends WebProcess {
 				engine.load(stopSequence.getUrl() + "&Accept=application/json");
 				break;
 			case COMBOLOAD:
-				if (rbFeatures.isSelected()) {
+				if (features) {
 					stopSequence = StopSequenceEnum.CARDDATA_FEATURE;
 				}
 				else {
@@ -190,7 +192,7 @@ public class V1ApiService extends WebProcess {
 					else {
 						extraUrl = null;
 						if (stories.size() > 0) {
-							APICardService.process(stories, null, rbFeatures.isSelected());
+							APICardService.process(stories, null, features, rbOnePage);
 							System.exit(0);
 						}
 						else {
@@ -218,7 +220,7 @@ public class V1ApiService extends WebProcess {
 				stories.add(storyMap.get(key));
 			}
 			try {
-				APICardService.process(stories, null, rbFeatures.isSelected());
+				APICardService.process(stories, null, features, rbOnePage);
 			}
 			catch (DRException | IOException e) {
 				log.error("Exception Caught: ", e);
