@@ -1,18 +1,5 @@
 package com.fedex.services.agile.cards.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fedex.services.agile.cards.model.TaskModel;
-import com.fedex.services.agile.cards.model.V1Asset;
-import com.fedex.services.agile.cards.model.V1Object;
-import com.fedex.services.agile.cards.model.V1Value;
-import com.fedex.services.agile.cards.model.V1Values;
-import com.fedex.services.agile.cards.report.CardReport;
-import com.fedex.services.agile.cards.report.V1CardCreator;
-import lombok.extern.apachecommons.CommonsLog;
-import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
-import net.sf.dynamicreports.report.exception.DRException;
-import org.jsoup.Jsoup;
-
 import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,6 +7,25 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
+
+import org.jsoup.Jsoup;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fedex.services.agile.cards.model.TaskModel;
+import com.fedex.services.agile.cards.model.V1Asset;
+import com.fedex.services.agile.cards.model.V1FeatureAsset;
+import com.fedex.services.agile.cards.model.V1FeatureObject;
+import com.fedex.services.agile.cards.model.V1Object;
+import com.fedex.services.agile.cards.model.V1Value;
+import com.fedex.services.agile.cards.model.V1Values;
+import com.fedex.services.agile.cards.report.CardReport;
+import com.fedex.services.agile.cards.report.EpicTaskCreator;
+import com.fedex.services.agile.cards.report.FeatureTaskCreator;
+import com.fedex.services.agile.cards.report.V1CardCreator;
+import lombok.extern.apachecommons.CommonsLog;
+import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
+import net.sf.dynamicreports.report.exception.DRException;
 
 @CommonsLog
 public class APICardService {
@@ -30,8 +36,8 @@ public class APICardService {
 				Color.RED, Color.BLACK, new Color(0, 102, 0), new Color(102, 51, 0),
 				new Color(204, 0, 204), new Color(153, 0, 76)};
 
-	public static Map<String, TaskModel> dumpToMap(String json) throws IOException {
-		Map<String, TaskModel> storyMap = new HashMap<>();
+	static Map<String, TaskModel> dumpToMap(String json) throws IOException {
+		Map<String, TaskModel> storyMap = new TreeMap<>();
 		V1Object v1Response = mapper.readValue(json, V1Object.class);
 		List<TaskModel> storyList = new APICardService().convert(v1Response);
 		for (TaskModel story : storyList) {
@@ -40,8 +46,24 @@ public class APICardService {
 		return storyMap;
 	}
 
-	public static void process(List<TaskModel> storyList, String outFile) throws DRException, IOException {
-		CardReport cardReport = new V1CardCreator();
+	static Map<String, TaskModel> dumpFeatureToMap(String json) throws IOException {
+		Map<String, TaskModel> storyMap = new TreeMap<>();
+		V1FeatureObject v1Response = mapper.readValue(json, V1FeatureObject.class);
+		List<TaskModel> storyList = new APICardService().convert(v1Response);
+		for (TaskModel story : storyList) {
+			storyMap.put(story.getUserStoryId(), story);
+		}
+		return storyMap;
+	}
+
+	public static void process(List<TaskModel> storyList, String outFile, boolean features) throws DRException, IOException {
+		CardReport cardReport;
+		if (features) {
+			cardReport = new EpicTaskCreator();
+		}
+		else {
+			cardReport = new V1CardCreator();
+		}
 		JasperReportBuilder report = cardReport.buildCards(storyList);
 		if (outFile != null && outFile.length() > 0) {
 			if (!outFile.toLowerCase().endsWith(".pdf")) {
@@ -75,6 +97,21 @@ public class APICardService {
 		return cards;
 	}
 
+	public List<TaskModel> convert(V1FeatureObject v1Response) {
+		List<TaskModel> cards = new ArrayList<>();
+//		Map<String, Color> colorMap = new HashMap<>();
+		for (V1FeatureAsset asset : v1Response.getAssets()) {
+			TaskModel model = new TaskModel();
+			model.setUserStoryId(asset.getAttribute().getPortfolioNumbers().getValue().get(0));
+			model.setFeature(asset.getAttribute().getPortfolioNames().getValue().get(0));
+			model.setDescription(safeValue(asset.getAttribute().getPortfolioDescriptions().getValue().get(0)));
+//			model.setRelease(asset.getAttribute().getProgramIncrements().getValue().get(0));
+//			model.setColor(getColorFromMap(featureNumber, colorMap));
+			cards.add(model);
+		}
+		return cards;
+	}
+
 	private Color getColorFromMap(String featureNumber, Map<String, Color> colorMap) {
 		if (!colorMap.containsKey(featureNumber)) {
 			colorMap.put(featureNumber, COLORS[colorMap.size() % COLORS.length]);
@@ -87,6 +124,13 @@ public class APICardService {
 			return "";
 		}
 		return Jsoup.parse(v1Value.getValue()).text();
+	}
+
+	private String safeValue(String string) {
+		if (string == null) {
+			return "";
+		}
+		return Jsoup.parse(string).text();
 	}
 
 	private String linkValues(V1Values owners) {

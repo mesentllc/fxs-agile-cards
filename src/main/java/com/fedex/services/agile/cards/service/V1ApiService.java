@@ -2,6 +2,7 @@ package com.fedex.services.agile.cards.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fedex.services.agile.cards.WebMakeCards;
+import com.fedex.services.agile.cards.enums.FilterEnum;
 import com.fedex.services.agile.cards.enums.StopSequenceEnum;
 import com.fedex.services.agile.cards.model.History;
 import com.fedex.services.agile.cards.model.HistoryRecord;
@@ -15,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
 import javafx.scene.web.WebEngine;
 import lombok.extern.apachecommons.CommonsLog;
 import net.sf.dynamicreports.report.exception.DRException;
@@ -45,15 +47,17 @@ public class V1ApiService extends WebProcess {
 	private final List<TaskModel> stories = new ArrayList<>();
 	private final Button btnExtract;
 	private final DatePicker dpAfter;
+	private final RadioButton rbFeatures;
 	private WebMakeCards app;
 	private WebEngine engine;
 	private StopSequenceEnum stopSequence;
 	private Map<String, TaskModel> storyMap;
 	private String extraUrl = null;
 
-	public V1ApiService(Button btnExtract, DatePicker dpAfter) {
+	public V1ApiService(Button btnExtract, DatePicker dpAfter, RadioButton rbFeatures) {
 		this.btnExtract = btnExtract;
 		this.dpAfter = dpAfter;
+		this.rbFeatures = rbFeatures;
 	}
 
 	private ObservableList<String> piItems(V1Object v1Object) {
@@ -111,7 +115,12 @@ public class V1ApiService extends WebProcess {
 				engine.load(stopSequence.getUrl() + "&Accept=application/json");
 				break;
 			case COMBOLOAD:
-				stopSequence = StopSequenceEnum.CARDDATA;
+				if (rbFeatures.isSelected()) {
+					stopSequence = StopSequenceEnum.CARDDATA_FEATURE;
+				}
+				else {
+					stopSequence = StopSequenceEnum.CARDDATA_US;
+				}
 				json = retrieveJsonFromHTML();
 				engine.load("about:blank");
 				try {
@@ -129,7 +138,7 @@ public class V1ApiService extends WebProcess {
 				}
 				engine.loadContent(instructHtml);
 				break;
-			case CARDDATA:
+			case CARDDATA_US:
 				try {
 					storyMap = APICardService.dumpToMap(retrieveJsonFromHTML());
 				}
@@ -144,6 +153,21 @@ public class V1ApiService extends WebProcess {
 						extraUrl = key;
 						engine.load(stopSequence.getUrl() + key);
 					});
+				}
+				else {
+					notifyNoStories();
+				}
+				break;
+			case CARDDATA_FEATURE:
+				try {
+					storyMap = APICardService.dumpFeatureToMap(retrieveJsonFromHTML());
+				}
+				catch (IOException ioe) {
+					log.error("Exception Caught: ", ioe);
+					return;
+				}
+				if (storyMap.size() > 0) {
+					printCardsAndExitIfNoDate();
 				}
 				else {
 					notifyNoStories();
@@ -166,7 +190,7 @@ public class V1ApiService extends WebProcess {
 					else {
 						extraUrl = null;
 						if (stories.size() > 0) {
-							APICardService.process(stories, null);
+							APICardService.process(stories, null, rbFeatures.isSelected());
 							System.exit(0);
 						}
 						else {
@@ -181,7 +205,7 @@ public class V1ApiService extends WebProcess {
 	}
 
 	private void notifyNoStories() {
-		stopSequence = StopSequenceEnum.CARDDATA;
+		stopSequence = StopSequenceEnum.CARDDATA_US;
 		Alert alert = new Alert(Alert.AlertType.INFORMATION, "No stories found for current selection.", ButtonType.OK);
 		alert.setTitle("No stories.");
 		alert.showAndWait();
@@ -194,7 +218,7 @@ public class V1ApiService extends WebProcess {
 				stories.add(storyMap.get(key));
 			}
 			try {
-				APICardService.process(stories, null);
+				APICardService.process(stories, null, rbFeatures.isSelected());
 			}
 			catch (DRException | IOException e) {
 				log.error("Exception Caught: ", e);

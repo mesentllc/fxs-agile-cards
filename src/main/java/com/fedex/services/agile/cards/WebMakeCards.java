@@ -1,12 +1,14 @@
 package com.fedex.services.agile.cards;
 
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+
 import com.fedex.services.agile.cards.enums.StopSequenceEnum;
 import com.fedex.services.agile.cards.service.V1ApiService;
 import com.fedex.services.agile.cards.service.WebProcess;
 import com.fedex.services.agile.cards.utility.WebUtils;
 import javafx.application.Application;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -14,6 +16,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -25,22 +29,21 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.extern.apachecommons.CommonsLog;
 
-import java.io.IOException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
-import java.time.LocalDate;
-
 @CommonsLog
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class WebMakeCards extends Application {
-	private final DatePicker dpAfter = new DatePicker();
+	private static final DatePicker dpAfter = new DatePicker();
 	private WebView webView;
 	private ComboBox<String> cbxPI;
 	private ComboBox<String> cbxSprint;
 	private ComboBox<String> cbxTeam;
+	private Button btnType;
 	private Button btnSubmit;
-
+	private RadioButton rbFeatures;
+	private RadioButton rbUserStories;
+	private ToggleGroup tgType;
+	private WebProcess v1ApiService;
 
 	private Pane setupUI() {
 		Font bold = Font.font("System Bold", FontWeight.BOLD, 12.0);
@@ -52,20 +55,34 @@ public class WebMakeCards extends Application {
 		VBox rightSpacer = new VBox();
 		rightSpacer.setPrefSize(20, 500);
 		webContainer.setPrefSize(800, 500);
+		HBox typeContainer = new HBox();
 		VBox controlContainer = new VBox();
 		controlContainer.setPrefSize(300, 500);
 		cbxPI = new ComboBox<>();
-		cbxPI.setOnAction(event -> {
-			btnSubmit.setDisable(!filterSelected());
-		});
+		cbxPI.setOnAction(event -> btnSubmit.setDisable(!filterSelected()));
 		cbxSprint = new ComboBox<>();
-		cbxSprint.setOnAction(event -> {
-			btnSubmit.setDisable(!filterSelected());
-		});
+		cbxSprint.setOnAction(event -> btnSubmit.setDisable(!filterSelected()));
 		cbxTeam = new ComboBox<>();
-		cbxTeam.setOnAction(event -> {
-			btnSubmit.setDisable(!filterSelected());
+		cbxTeam.setOnAction(event -> btnSubmit.setDisable(!filterSelected()));
+		tgType = new ToggleGroup();
+		rbUserStories = new RadioButton("User Stories");
+		rbUserStories.setPadding(new Insets(0, 20, 0, 0));
+		rbUserStories.setToggleGroup(tgType);
+		rbUserStories.setSelected(true);
+		rbFeatures = new RadioButton("Features");
+		rbFeatures.setPadding(new Insets(0, 20, 0, 0));
+		rbFeatures.setToggleGroup(tgType);
+		btnType = new Button();
+		btnType.setText("Set");
+		btnType.setDisable(false);
+		btnType.setOnAction(event -> {
+			rbUserStories.setDisable(true);
+			rbFeatures.setDisable(true);
+			btnType.setDisable(true);
+			v1ApiService = new V1ApiService(btnSubmit, dpAfter, rbFeatures);
+			v1ApiService.process(this);
 		});
+		typeContainer.getChildren().addAll(rbUserStories, rbFeatures, btnType);
 		Label lblPI = new Label();
 		lblPI.setText("Program Increment:");
 		lblPI.setFont(bold);
@@ -78,6 +95,10 @@ public class WebMakeCards extends Application {
 		lblTeam.setText("Team:");
 		lblTeam.setFont(bold);
 		lblTeam.setPadding(new Insets(10, 10, 10, 0));
+		Label lblType = new Label();
+		lblType.setText("Card Type:  (Please select and SET before we start.)");
+		lblType.setFont(bold);
+		lblType.setPadding(new Insets(10, 10, 10, 0));
 		Label lblAfter = new Label();
 		lblAfter.setText("Created After:");
 		lblAfter.setFont(bold);
@@ -91,7 +112,12 @@ public class WebMakeCards extends Application {
 		btnSubmit.setOnAction(event -> {
 			if (filterSelected()) {
 				btnSubmit.setDisable(true);
-				webView.getEngine().load(StopSequenceEnum.CARDDATA.getUrl() + buildSelectString() + "&Accept=application/json");
+				if (rbFeatures.isSelected()) {
+					webView.getEngine().load(StopSequenceEnum.CARDDATA_FEATURE.getUrl() + buildSelectString() + "&Accept=application/json");
+				}
+				else {
+					webView.getEngine().load(StopSequenceEnum.CARDDATA_US.getUrl() + buildSelectString() + "&Accept=application/json");
+				}
 			}
 			else {
 				Alert alert = new Alert(Alert.AlertType.ERROR, "Must select AT LEAST one of the filters.\n PI, Sprint or Team.", ButtonType.OK);
@@ -105,7 +131,8 @@ public class WebMakeCards extends Application {
 		Label lblBtnSpacer = new Label();
 		lblBtnSpacer.setPadding(new Insets(20));
 		btnBox.getChildren().addAll(btnSubmit, lblBtnSpacer, btnExit);
-		controlContainer.getChildren().addAll(lblPI, cbxPI, lblSprint, cbxSprint, lblTeam, cbxTeam, lblAfter, dpAfter, lblSpacer, btnBox);
+		controlContainer.getChildren().addAll(lblType, typeContainer, lblPI, cbxPI, lblSprint, cbxSprint,
+			lblTeam, cbxTeam, lblAfter, dpAfter, lblSpacer, btnBox);
 		container.getChildren().addAll(webContainer, leftSpacer, controlContainer, rightSpacer);
 		return container;
 	}
@@ -163,7 +190,5 @@ public class WebMakeCards extends Application {
 		stage.setScene(new Scene(setupUI()));
 		stage.show();
 		stage.setResizable(false);
-		WebProcess v1ApiService = new V1ApiService(btnSubmit, dpAfter);
-		v1ApiService.process(this);
 	}
 }

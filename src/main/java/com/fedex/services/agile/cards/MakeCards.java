@@ -18,7 +18,7 @@ public class MakeCards {
 		ObjectMapper mapper = new ObjectMapper();
 		V1Object v1Response = mapper.readValue(dao.retrieveJson(filename), V1Object.class);
 		List<TaskModel> storyList = new APICardService().convert(v1Response);
-		APICardService.process(storyList, null);
+		APICardService.process(storyList, null, false);
 	}
 
 	public static void main(String[] args) throws DRException, IOException {
