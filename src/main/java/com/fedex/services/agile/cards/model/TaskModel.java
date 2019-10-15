@@ -4,8 +4,10 @@ import java.awt.Color;
 import java.util.regex.Pattern;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class TaskModel implements Comparable {
 	private static final Pattern SPACE_PATTERN = Pattern.compile("\\r|\\n|  ");
 	private String acceptanceCriteria;
@@ -25,7 +27,23 @@ public class TaskModel implements Comparable {
 	private String sprint;
 	private Color color;
 
-	public TaskModel() {
+	public TaskModel(TaskModel original) {
+		this.acceptanceCriteria = original.acceptanceCriteria;
+		this.userStoryId = original.userStoryId;
+		this.userStoryTitle = original.userStoryTitle;
+		this.task = original.task;
+		this.taskId = original.taskId;
+		this.description = original.description;
+		this.hours = original.hours;
+		this.itg = original.itg;
+		this.priority = original.priority;
+		this.storyPoints = original.storyPoints;
+		this.epic = original.epic;
+		this.feature = original.feature;
+		this.release = original.release;
+		this.assignedTo = original.assignedTo;
+		this.sprint = original.sprint;
+		this.color = original.color;
 	}
 
 	@Override

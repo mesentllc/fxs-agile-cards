@@ -1,5 +1,6 @@
 package com.fedex.services.agile.cards.report;
 
+import com.fedex.services.agile.cards.comparitor.DescriptionLengthComparator;
 import com.fedex.services.agile.cards.model.TaskModel;
 import net.sf.dynamicreports.jasper.builder.JasperReportBuilder;
 import net.sf.dynamicreports.report.builder.DynamicReports;
@@ -14,6 +15,7 @@ import net.sf.dynamicreports.report.constant.VerticalTextAlignment;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import static net.sf.dynamicreports.report.builder.DynamicReports.cmp;
@@ -153,20 +155,72 @@ public abstract class CardReport {
 	}
 
 	public JasperReportBuilder buildCards(List<TaskModel> tasks) {
+		tasks.sort(new DescriptionLengthComparator());
+		if (oneCard) {
+			return buildSingles(tasks);
+		}
+		return buildQuads(tasks);
+//		for (TaskModel task : tasks) {
+//			if (oneCard) {
+//				preparePageOf1(task, multiPageList);
+//			}
+//			else {
+//				largeCardSeen = preparePageOf4(task, cards, multiPageList, largeCardSeen);
+//			}
+//		}
+//		if (!cards.isEmpty()) {
+//			fabricate(multiPageList, cards);
+//		}
+//		report.setPageFormat(PageType.LETTER, PageOrientation.LANDSCAPE).summary(multiPageList);
+//		return report;
+	}
+
+	private JasperReportBuilder buildSingles(List<TaskModel> tasks) {
+		MultiPageListBuilder multiPageList = cmp.multiPageList();
+
+		for (TaskModel task : tasks) {
+			ComponentBuilder<?, ?> card = buildCard(task);
+			fabricate(multiPageList, card);
+		}
+		report.setPageFormat(PageType.LETTER, PageOrientation.LANDSCAPE).summary(multiPageList);
+		return report;
+	}
+
+	private JasperReportBuilder buildQuads(List<TaskModel> tasks) {
 		MultiPageListBuilder multiPageList = cmp.multiPageList();
 		List<ComponentBuilder<?, ?>> cards = new ArrayList<>(4);
 		boolean largeCardSeen = false;
 
 		for (TaskModel task : tasks) {
-			if (oneCard) {
-				preparePageOf1(task, multiPageList);
+			if (task.getDescription().length() > 250) {
+				largeCardSeen = true;
 			}
-			else {
-				largeCardSeen = preparePageOf4(task, cards, multiPageList, largeCardSeen);
+			if (cards.size() == 4 || (cards.size() > 1 && largeCardSeen)) {
+				while (cards.size() < 4) {
+					cards.add(buildCard(null));
+				}
+				multiPageList.add(cmp.verticalGap(10),
+					cmp.horizontalList(cmp.horizontalGap(5), cards.get(0), cmp.horizontalGap(20), cards.get(1)),
+					cmp.verticalGap(20),
+					cmp.horizontalList(cmp.horizontalGap(5), cards.get(2), cmp.horizontalGap(20), cards.get(3)));
+				cards = new ArrayList<>(4);
+			}
+			cards.add(buildCard(task));
+			if (cards.size() == 2) {
+				multiPageList.add(cmp.verticalGap(10),
+					cmp.horizontalList(cmp.horizontalGap(5), cards.get(0), cmp.horizontalGap(20), cards.get(1)));
+				cards = new ArrayList<>(4);
+				largeCardSeen = false;
 			}
 		}
 		if (!cards.isEmpty()) {
-			fabricate(multiPageList, cards);
+			while (cards.size() < 4) {
+				cards.add(buildCard(null));
+			}
+			multiPageList.add(cmp.verticalGap(10),
+				cmp.horizontalList(cmp.horizontalGap(5), cards.get(0), cmp.horizontalGap(20), cards.get(1)),
+				cmp.verticalGap(20),
+				cmp.horizontalList(cmp.horizontalGap(5), cards.get(2), cmp.horizontalGap(20), cards.get(3)));
 		}
 		report.setPageFormat(PageType.LETTER, PageOrientation.LANDSCAPE).summary(multiPageList);
 		return report;
